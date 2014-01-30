@@ -1,0 +1,456 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4CB41359189AB5D600D330E8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CB41358189AB5D600D330E8 /* Foundation.framework */; };
+		4CB4135B189AB5D600D330E8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CB4135A189AB5D600D330E8 /* CoreGraphics.framework */; };
+		4CB4135D189AB5D600D330E8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CB4135C189AB5D600D330E8 /* UIKit.framework */; };
+		4CB41363189AB5D600D330E8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4CB41361189AB5D600D330E8 /* InfoPlist.strings */; };
+		4CB41365189AB5D600D330E8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB41364189AB5D600D330E8 /* main.m */; };
+		4CB41369189AB5D600D330E8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB41368189AB5D600D330E8 /* AppDelegate.m */; };
+		4CB4136B189AB5D600D330E8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CB4136A189AB5D600D330E8 /* Images.xcassets */; };
+		4CB41372189AB5D600D330E8 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CB41371189AB5D600D330E8 /* XCTest.framework */; };
+		4CB41373189AB5D600D330E8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CB41358189AB5D600D330E8 /* Foundation.framework */; };
+		4CB41374189AB5D600D330E8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CB4135C189AB5D600D330E8 /* UIKit.framework */; };
+		4CB4137C189AB5D600D330E8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4CB4137A189AB5D600D330E8 /* InfoPlist.strings */; };
+		4CB4137E189AB5D600D330E8 /* NSSilverBulletTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB4137D189AB5D600D330E8 /* NSSilverBulletTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4CB41375189AB5D600D330E8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4CB4134D189AB5D600D330E8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4CB41354189AB5D600D330E8;
+			remoteInfo = NSSilverBullet;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		4CB41355189AB5D600D330E8 /* NSSilverBullet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NSSilverBullet.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4CB41358189AB5D600D330E8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		4CB4135A189AB5D600D330E8 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		4CB4135C189AB5D600D330E8 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		4CB41360189AB5D600D330E8 /* NSSilverBullet-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NSSilverBullet-Info.plist"; sourceTree = "<group>"; };
+		4CB41362189AB5D600D330E8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		4CB41364189AB5D600D330E8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		4CB41366189AB5D600D330E8 /* NSSilverBullet-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSSilverBullet-Prefix.pch"; sourceTree = "<group>"; };
+		4CB41367189AB5D600D330E8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		4CB41368189AB5D600D330E8 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		4CB4136A189AB5D600D330E8 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		4CB41370189AB5D600D330E8 /* NSSilverBulletTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NSSilverBulletTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4CB41371189AB5D600D330E8 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		4CB41379189AB5D600D330E8 /* NSSilverBulletTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NSSilverBulletTests-Info.plist"; sourceTree = "<group>"; };
+		4CB4137B189AB5D600D330E8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		4CB4137D189AB5D600D330E8 /* NSSilverBulletTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSSilverBulletTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4CB41352189AB5D600D330E8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4CB4135B189AB5D600D330E8 /* CoreGraphics.framework in Frameworks */,
+				4CB4135D189AB5D600D330E8 /* UIKit.framework in Frameworks */,
+				4CB41359189AB5D600D330E8 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4CB4136D189AB5D600D330E8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4CB41372189AB5D600D330E8 /* XCTest.framework in Frameworks */,
+				4CB41374189AB5D600D330E8 /* UIKit.framework in Frameworks */,
+				4CB41373189AB5D600D330E8 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4CB4134C189AB5D600D330E8 = {
+			isa = PBXGroup;
+			children = (
+				4CB4135E189AB5D600D330E8 /* NSSilverBullet */,
+				4CB41377189AB5D600D330E8 /* NSSilverBulletTests */,
+				4CB41357189AB5D600D330E8 /* Frameworks */,
+				4CB41356189AB5D600D330E8 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4CB41356189AB5D600D330E8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4CB41355189AB5D600D330E8 /* NSSilverBullet.app */,
+				4CB41370189AB5D600D330E8 /* NSSilverBulletTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4CB41357189AB5D600D330E8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4CB41358189AB5D600D330E8 /* Foundation.framework */,
+				4CB4135A189AB5D600D330E8 /* CoreGraphics.framework */,
+				4CB4135C189AB5D600D330E8 /* UIKit.framework */,
+				4CB41371189AB5D600D330E8 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4CB4135E189AB5D600D330E8 /* NSSilverBullet */ = {
+			isa = PBXGroup;
+			children = (
+				4CB41367189AB5D600D330E8 /* AppDelegate.h */,
+				4CB41368189AB5D600D330E8 /* AppDelegate.m */,
+				4CB4136A189AB5D600D330E8 /* Images.xcassets */,
+				4CB4135F189AB5D600D330E8 /* Supporting Files */,
+			);
+			path = NSSilverBullet;
+			sourceTree = "<group>";
+		};
+		4CB4135F189AB5D600D330E8 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4CB41360189AB5D600D330E8 /* NSSilverBullet-Info.plist */,
+				4CB41361189AB5D600D330E8 /* InfoPlist.strings */,
+				4CB41364189AB5D600D330E8 /* main.m */,
+				4CB41366189AB5D600D330E8 /* NSSilverBullet-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4CB41377189AB5D600D330E8 /* NSSilverBulletTests */ = {
+			isa = PBXGroup;
+			children = (
+				4CB4137D189AB5D600D330E8 /* NSSilverBulletTests.m */,
+				4CB41378189AB5D600D330E8 /* Supporting Files */,
+			);
+			path = NSSilverBulletTests;
+			sourceTree = "<group>";
+		};
+		4CB41378189AB5D600D330E8 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4CB41379189AB5D600D330E8 /* NSSilverBulletTests-Info.plist */,
+				4CB4137A189AB5D600D330E8 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4CB41354189AB5D600D330E8 /* NSSilverBullet */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4CB41381189AB5D600D330E8 /* Build configuration list for PBXNativeTarget "NSSilverBullet" */;
+			buildPhases = (
+				4CB41351189AB5D600D330E8 /* Sources */,
+				4CB41352189AB5D600D330E8 /* Frameworks */,
+				4CB41353189AB5D600D330E8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NSSilverBullet;
+			productName = NSSilverBullet;
+			productReference = 4CB41355189AB5D600D330E8 /* NSSilverBullet.app */;
+			productType = "com.apple.product-type.application";
+		};
+		4CB4136F189AB5D600D330E8 /* NSSilverBulletTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4CB41384189AB5D600D330E8 /* Build configuration list for PBXNativeTarget "NSSilverBulletTests" */;
+			buildPhases = (
+				4CB4136C189AB5D600D330E8 /* Sources */,
+				4CB4136D189AB5D600D330E8 /* Frameworks */,
+				4CB4136E189AB5D600D330E8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4CB41376189AB5D600D330E8 /* PBXTargetDependency */,
+			);
+			name = NSSilverBulletTests;
+			productName = NSSilverBulletTests;
+			productReference = 4CB41370189AB5D600D330E8 /* NSSilverBulletTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4CB4134D189AB5D600D330E8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = AppChallenge;
+				TargetAttributes = {
+					4CB4136F189AB5D600D330E8 = {
+						TestTargetID = 4CB41354189AB5D600D330E8;
+					};
+				};
+			};
+			buildConfigurationList = 4CB41350189AB5D600D330E8 /* Build configuration list for PBXProject "NSSilverBullet" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 4CB4134C189AB5D600D330E8;
+			productRefGroup = 4CB41356189AB5D600D330E8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4CB41354189AB5D600D330E8 /* NSSilverBullet */,
+				4CB4136F189AB5D600D330E8 /* NSSilverBulletTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4CB41353189AB5D600D330E8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4CB41363189AB5D600D330E8 /* InfoPlist.strings in Resources */,
+				4CB4136B189AB5D600D330E8 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4CB4136E189AB5D600D330E8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4CB4137C189AB5D600D330E8 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4CB41351189AB5D600D330E8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4CB41369189AB5D600D330E8 /* AppDelegate.m in Sources */,
+				4CB41365189AB5D600D330E8 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4CB4136C189AB5D600D330E8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4CB4137E189AB5D600D330E8 /* NSSilverBulletTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4CB41376189AB5D600D330E8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4CB41354189AB5D600D330E8 /* NSSilverBullet */;
+			targetProxy = 4CB41375189AB5D600D330E8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		4CB41361189AB5D600D330E8 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4CB41362189AB5D600D330E8 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		4CB4137A189AB5D600D330E8 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4CB4137B189AB5D600D330E8 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4CB4137F189AB5D600D330E8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		4CB41380189AB5D600D330E8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4CB41382189AB5D600D330E8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "NSSilverBullet/NSSilverBullet-Prefix.pch";
+				INFOPLIST_FILE = "NSSilverBullet/NSSilverBullet-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		4CB41383189AB5D600D330E8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "NSSilverBullet/NSSilverBullet-Prefix.pch";
+				INFOPLIST_FILE = "NSSilverBullet/NSSilverBullet-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		4CB41385189AB5D600D330E8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/NSSilverBullet.app/NSSilverBullet";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "NSSilverBullet/NSSilverBullet-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "NSSilverBulletTests/NSSilverBulletTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		4CB41386189AB5D600D330E8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/NSSilverBullet.app/NSSilverBullet";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "NSSilverBullet/NSSilverBullet-Prefix.pch";
+				INFOPLIST_FILE = "NSSilverBulletTests/NSSilverBulletTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4CB41350189AB5D600D330E8 /* Build configuration list for PBXProject "NSSilverBullet" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4CB4137F189AB5D600D330E8 /* Debug */,
+				4CB41380189AB5D600D330E8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4CB41381189AB5D600D330E8 /* Build configuration list for PBXNativeTarget "NSSilverBullet" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4CB41382189AB5D600D330E8 /* Debug */,
+				4CB41383189AB5D600D330E8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		4CB41384189AB5D600D330E8 /* Build configuration list for PBXNativeTarget "NSSilverBulletTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4CB41385189AB5D600D330E8 /* Debug */,
+				4CB41386189AB5D600D330E8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4CB4134D189AB5D600D330E8 /* Project object */;
+}
