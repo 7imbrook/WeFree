@@ -107,6 +107,11 @@
 		4CB4135E189AB5D600D330E8 /* NSSilverBullet */ = {
 			isa = PBXGroup;
 			children = (
+				4CB4138A189AB60000D330E8 /* Templates */,
+				4CB41389189AB5FA00D330E8 /* Views */,
+				4CB41388189AB5F700D330E8 /* Helpers */,
+				4CB4138B189AB60600D330E8 /* Models */,
+				4CB41387189AB5F000D330E8 /* Controllers */,
 				4CB41367189AB5D600D330E8 /* AppDelegate.h */,
 				4CB41368189AB5D600D330E8 /* AppDelegate.m */,
 				4CB4136A189AB5D600D330E8 /* Images.xcassets */,
@@ -142,6 +147,41 @@
 				4CB4137A189AB5D600D330E8 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4CB41387189AB5F000D330E8 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		4CB41388189AB5F700D330E8 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
+		4CB41389189AB5FA00D330E8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		4CB4138A189AB60000D330E8 /* Templates */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Templates;
+			sourceTree = "<group>";
+		};
+		4CB4138B189AB60600D330E8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -441,6 +481,7 @@
 				4CB41383189AB5D600D330E8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4CB41384189AB5D600D330E8 /* Build configuration list for PBXNativeTarget "NSSilverBulletTests" */ = {
 			isa = XCConfigurationList;
@@ -449,6 +490,7 @@
 				4CB41386189AB5D600D330E8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
