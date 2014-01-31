@@ -3,6 +3,8 @@ platform :ios, 7.0
 
 target "NSSilverBullet" do
 
+pod 'NSDate+RelativeTime', '~> 1.0'
+
 end
 
 target "NSSilverBulletTests" do
