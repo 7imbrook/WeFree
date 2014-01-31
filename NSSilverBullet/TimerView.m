@@ -19,6 +19,11 @@
 
 @implementation TimerView
 
++ (instancetype)newTimerView
+{
+    return [[[NSBundle mainBundle] loadNibNamed:@"TimerView" owner:self options:nil] firstObject];
+}
+
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];

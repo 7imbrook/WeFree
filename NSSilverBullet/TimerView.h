@@ -12,4 +12,6 @@
 
 @property (strong) NSDate *referenceDate;
 
++ (instancetype)newTimerView;
+
 @end
