@@ -6,9 +6,13 @@
 //  Copyright (c) 2014 AppChallenge. All rights reserved.
 //
 
+@import EventKit;
+
 #import "ScheduleViewController.h"
 
 @interface ScheduleViewController ()
+
+@property (nonatomic) EKEventStore *eventStore;
 
 @end
 
@@ -26,6 +30,8 @@
 {
     [super viewDidLoad];
 }
+
+#pragma mark - Helpers
 
 - (void)didReceiveMemoryWarning
 {
