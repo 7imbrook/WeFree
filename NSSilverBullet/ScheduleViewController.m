@@ -31,6 +31,26 @@
     [super viewDidLoad];
 }
 
+#pragma mark - EventStore methods
+
+- (void)checkEventStoreAccessForType:(EKEntityType)type
+{
+    EKAuthorizationStatus status = [EKEventStore authorizationStatusForEntityType:type];
+    
+    if(status == EKAuthorizationStatusNotDetermined) {
+        NSLog(@"Not Determined...");
+    }
+    else if(status == EKAuthorizationStatusRestricted) {
+        NSLog(@"Restricted access.");
+    }
+    else if(status == EKAuthorizationStatusDenied) {
+        NSLog(@"Status denied.");
+    }
+    else if(status == EKAuthorizationStatusAuthorized) {
+        NSLog(@"Status authorized.");
+    }
+}
+
 #pragma mark - Helpers
 
 - (void)didReceiveMemoryWarning
