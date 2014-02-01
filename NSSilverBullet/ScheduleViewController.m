@@ -51,6 +51,44 @@
     }
 }
 
+/**
+ * Fetches calendar event data from the event store using an NSPredicate. Formats
+ * the calendar data into minutes and hours.
+ */
+- (void)requestEventStoreAccessWithType:(EKEntityType)entityType
+{
+    if(!_eventStore) {
+        _eventStore = [EKEventStore new];
+    }
+    
+    [_eventStore requestAccessToEntityType:entityType completion:^(BOOL granted, NSError *error) {
+        NSCalendar *calendar = [NSCalendar currentCalendar];
+        
+        // Create start date components (yesterday)
+        NSDateComponents *yesterdayComponents = [[NSDateComponents alloc] init];
+        yesterdayComponents.day = -1;
+        NSDate *yesterday = [calendar dateByAddingComponents:yesterdayComponents
+                                                      toDate:[NSDate date]
+                                                     options:0];
+        
+        // Create end date components (a week)
+        NSDateComponents *aWeekComponents = [[NSDateComponents alloc] init];
+        aWeekComponents.day = 7;
+        NSDate *aWeek = [calendar dateByAddingComponents:aWeekComponents
+                                                  toDate:[NSDate date]
+                                                 options:0];
+        
+        // Create the predicate from the event store's instance method
+        NSPredicate *predicate = [_eventStore predicateForEventsWithStartDate:yesterday
+                                                                      endDate:aWeek
+                                                                    calendars:nil];
+        
+        // Fetch all events that match the predicate
+        NSArray *events = [_eventStore eventsMatchingPredicate:predicate];
+    }];
+}
+
+
 #pragma mark - Helpers
 
 - (void)didReceiveMemoryWarning
