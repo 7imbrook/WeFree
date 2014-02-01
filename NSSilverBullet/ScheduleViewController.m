@@ -29,6 +29,19 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
+	// Do any additional setup after loading the view.
+    UISwipeGestureRecognizer *oneFingerSwipeRight = [[UISwipeGestureRecognizer alloc]
+                                                      initWithTarget:self
+                                                      action:@selector(oneFingerSwipeRight:)];
+    [oneFingerSwipeRight setDirection:UISwipeGestureRecognizerDirectionRight];
+    [[self view] addGestureRecognizer:oneFingerSwipeRight];
+    
+}
+
+- (void)oneFingerSwipeRight:(UITapGestureRecognizer *)recognizer {
+    // Insert your own code to handle swipe right
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark - EventStore methods
