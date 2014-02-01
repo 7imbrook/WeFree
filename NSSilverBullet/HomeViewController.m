@@ -7,8 +7,11 @@
 //
 
 #import "HomeViewController.h"
+#import "TimerView.h"
 
 @interface HomeViewController ()
+
+@property (strong, nonatomic) TimerView *timerView;
 
 @end
 
@@ -19,6 +22,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        
     }
     return self;
 }
@@ -27,6 +31,11 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    _timerView = [TimerView newTimerView];
+    _timerView.referenceDate = [NSDate date];
+    [self.view addSubview:_timerView];
+    
 }
 
 - (void)didReceiveMemoryWarning
