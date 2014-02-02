@@ -13,8 +13,11 @@
 @interface HomeViewController ()
 
 @property (nonatomic) TimerView *timerView;
+@property ScheduleViewController *svc;
 
 @end
+
+typedef void (^myCompletion)(BOOL);
 
 @implementation HomeViewController
 
@@ -24,11 +27,12 @@
 
     _timerView = [TimerView newTimerView];
     _timerView.referenceDate = [NSDate date];
-    
     [self.view addSubview:_timerView];
     
-    ScheduleViewController *svc = [ScheduleViewController new];
-    _timerView.referenceDate = [svc fetchNextDate];
+    _svc = [ScheduleViewController new];
+    [_svc requestEventStoreAccessWithType:EKEntityTypeEvent completion:^(NSDate *nextDate) {
+        _timerView.referenceDate = nextDate;
+    }];
 }
 
 - (IBAction)unwindToHome:(UIStoryboardSegue *)unwindSegue

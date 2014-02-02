@@ -10,4 +10,6 @@
 
 @interface HomeViewController : UIViewController
 
+@property NSTimeInterval nextHours;
+
 @end

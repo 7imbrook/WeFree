@@ -8,10 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+@import EventKit;
+
 @interface ScheduleViewController : UICollectionViewController
 
-@property NSDate *nextDate;
+@property  NSDate *nextDate;
+@property  NSTimeInterval nextDateHours;
+@property  NSTimeInterval nextDateMinutes;
 
-- (NSDate *)fetchNextDate;
+- (void)requestEventStoreAccessWithType:(EKEntityType)entityType completion:(void (^)(NSDate *nextDate))completion;
 
 @end

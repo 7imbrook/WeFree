@@ -9,6 +9,7 @@
 @import EventKit;
 
 #import "ScheduleViewController.h"
+#import "HomeViewController.h"
 
 @interface ScheduleViewController ()
 
@@ -68,7 +69,7 @@
  * Fetches calendar event data from the event store using an NSPredicate. Formats
  * the calendar data into minutes and hours.
  */
-- (void)requestEventStoreAccessWithType:(EKEntityType)entityType
+- (void)requestEventStoreAccessWithType:(EKEntityType)entityType completion:(void (^)(NSDate *nextDate))completion
 {
     if(!_eventStore) {
         _eventStore = [EKEventStore new];
@@ -105,15 +106,21 @@
         
         // Events are chronologically added to the array
         _nextDate = [[events firstObject] startDate];
+        
+        // Set the reference point for the event comparison
+        _nextDateHours = [[NSDate distantFuture] timeIntervalSinceDate:[NSDate date]];
+        
+        for (EKEvent *event in events){
+            if ((_nextDateHours > [[event startDate] timeIntervalSinceDate:[NSDate date]] / 3600) &&
+                [[event startDate] timeIntervalSinceDate:[NSDate date]] > 0){
+                _nextDate = [event startDate];
+                _nextDateHours = [[event startDate] timeIntervalSinceDate:[NSDate date]] / 3600;
+                _nextDateMinutes = 60 * ([[event startDate] timeIntervalSinceDate:[NSDate date]] / 3600);
+                completion(_nextDate);
+            }
+        }
     }];
 }
-
-- (NSDate *)fetchNextDate
-{
-    [self requestEventStoreAccessWithType:EKEntityTypeEvent];
-    return _nextDate;
-}
-
 
 #pragma mark - Helpers
 
