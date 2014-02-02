@@ -12,10 +12,6 @@
 
 @interface ScheduleViewController : UICollectionViewController
 
-@property  NSDate *nextDate;
-@property  NSTimeInterval nextDateHours;
-@property  NSTimeInterval nextDateMinutes;
-
 - (void)requestEventStoreAccessWithType:(EKEntityType)entityType completion:(void (^)(NSArray *eventArray))completion;
 
 @end

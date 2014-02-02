@@ -19,14 +19,6 @@
 
 @implementation ScheduleViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -40,8 +32,8 @@
     
 }
 
-- (void)oneFingerSwipeRight:(UITapGestureRecognizer *)recognizer {
-    // Insert your own code to handle swipe right
+- (void)oneFingerSwipeRight:(UITapGestureRecognizer *)recognizer
+{
     [self.navigationController popViewControllerAnimated:YES];
 }
 
@@ -75,19 +67,13 @@
         _eventStore = [EKEventStore new];
     }
     
-    if(!_nextDate) {
-        _nextDate = [NSDate new];
-    }
-    
     [_eventStore requestAccessToEntityType:entityType completion:^(BOOL granted, NSError *error) {
         NSCalendar *calendar = [NSCalendar currentCalendar];
         
         // Create end date components (a week)
-        NSDateComponents *aWeekComponents = [[NSDateComponents alloc] init];
+        NSDateComponents *aWeekComponents = [NSDateComponents new];
         aWeekComponents.day = 7;
-        NSDate *aWeek = [calendar dateByAddingComponents:aWeekComponents
-                                                  toDate:[NSDate date]
-                                                 options:0];
+        NSDate *aWeek = [calendar dateByAddingComponents:aWeekComponents toDate:[NSDate date] options:0];
         
         // Create the predicate from the event store's instance method
         NSPredicate *predicate = [_eventStore predicateForEventsWithStartDate:[NSDate date]
@@ -96,9 +82,6 @@
         
         // Fetch all events that match the predicate
         NSArray *events = [_eventStore eventsMatchingPredicate:predicate];
-        
-        // Set the reference point for the event comparison
-        _nextDateHours = [[NSDate distantFuture] timeIntervalSinceDate:[NSDate date]];
         
         // Pass the events array to the HVC completion block
         completion(events);
