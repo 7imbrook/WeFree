@@ -52,6 +52,14 @@
 
 - (void)updateTime
 {
+    // Hide timer if event is in the past
+    if ([_referenceDate timeIntervalSinceDate:[NSDate date]] <= 0) {
+        [self setAlpha:0];
+    } else {
+        [UIView animateWithDuration:.35 animations:^(void){
+            [self setAlpha:1];
+        }];
+    }
     NSTimeInterval interval = [_referenceDate timeIntervalSinceNow];
     _relitiveTime.text = [_referenceDate relativeTime];
     _timeOutlet.text = [self timeFormateForInterval:interval];
