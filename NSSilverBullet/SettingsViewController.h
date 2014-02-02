@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SettingsViewController : UIViewController
+extern NSString *OTUserDefaultsGravatarEmailKey;
+extern NSString *OTUserDefaultsDeviceSearchDisabledKey;
+
+@interface SettingsViewController : UITableViewController <UITextFieldDelegate>
 
 @end
