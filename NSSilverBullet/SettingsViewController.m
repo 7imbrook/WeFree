@@ -6,13 +6,42 @@
 //  Copyright (c) 2014 AppChallenge. All rights reserved.
 //
 
+#import <Foundation/Foundation.h>
 #import "SettingsViewController.h"
 
+NSString *OTUserDefaultsGravatarEmailKey = @"gravatarEmail";
+NSString *OTUserDefaultsDeviceSearchDisabledKey = @"deviceSearchDisabled";
+
 @interface SettingsViewController ()
+
+@property (weak, nonatomic) IBOutlet UISwitch *nearbyEnabledSwitch;
+@property (weak, nonatomic) IBOutlet UITextField *gravatarEmailTextField;
 
 @end
 
 @implementation SettingsViewController
+
+- (IBAction)nearbySwitchChange:(id)sender {
+    BOOL deviceSearchDisabled = !_nearbyEnabledSwitch.on;
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setBool:deviceSearchDisabled forKey:OTUserDefaultsDeviceSearchDisabledKey];
+    [defaults synchronize];
+    
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    
+    NSString *gravatarEmail = _gravatarEmailTextField.text;
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:gravatarEmail forKey:OTUserDefaultsGravatarEmailKey];
+    [defaults synchronize];
+    
+    return YES;
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -25,8 +54,17 @@
 
 - (void)viewDidLoad
 {
+    // Load our data before the view draws
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *gravatarEmail = [defaults objectForKey:OTUserDefaultsGravatarEmailKey];
+    BOOL deviceSearchDisabled = [defaults boolForKey:OTUserDefaultsDeviceSearchDisabledKey];
+    _gravatarEmailTextField.text = gravatarEmail;
+    _nearbyEnabledSwitch.on = !deviceSearchDisabled;
+    
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    _gravatarEmailTextField.delegate = self;
+    
 }
 
 - (void)didReceiveMemoryWarning
