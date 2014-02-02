@@ -5,14 +5,17 @@
 //  Created by Michael Timbrook on 1/30/14.
 //  Copyright (c) 2014 AppChallenge. All rights reserved.
 //
-
+#import <MultipeerConnectivity/MultipeerConnectivity.h>
 #import "HomeViewController.h"
+#import "MultipeerManager.h"
+#import "NearbyPeopleViewController.h"
 #import "TimerView.h"
 #import "ScheduleViewController.h"
 
 @interface HomeViewController ()
 
 @property (nonatomic) TimerView *timerView;
+@property (strong) NearbyPeopleViewController *nbpvc;
 
 @end
 
@@ -34,11 +37,20 @@
         _timerView.referenceDate = [[events firstObject] startDate];
         _timerView.nextEvent = [[events firstObject]title];
     }];
+
+	// Load Multipeer
+    _nbpvc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"NearbyPeopleViewController"];
+    _nbpvc.view.frame = CGRectMake(0, [UIScreen mainScreen].bounds.size.height, 320, 320);
+    [MultipeerManager.sharedManager setDelegate:_nbpvc];
+    [MultipeerManager.sharedManager start];
+    [self addChildViewController:_nbpvc];
+    [self.view addSubview:_nbpvc.view];
+
 }
 
 - (IBAction)unwindToHome:(UIStoryboardSegue *)unwindSegue
 {
-    
+
 }
 
 #pragma mark - Helpers

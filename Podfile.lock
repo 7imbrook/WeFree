@@ -1,10 +1,13 @@
 PODS:
+  - Colours (3.3)
   - NSDate+RelativeTime (1.0.1)
 
 DEPENDENCIES:
+  - Colours (~> 3.1)
   - NSDate+RelativeTime (~> 1.0)
 
 SPEC CHECKSUMS:
+  Colours: 9a9d99fad208574d5c205513b31323a5c2f15220
   NSDate+RelativeTime: 802d337ebf0b5c0b1a8e63c035acf8942bb11ba3
 
 COCOAPODS: 0.29.0
