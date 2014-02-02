@@ -27,8 +27,8 @@
     [self.view addSubview:_timerView];
     
     ScheduleViewController *scheduleViewController = [ScheduleViewController new];
-    [scheduleViewController requestEventStoreAccessWithType:EKEntityTypeEvent completion:^(NSDate *nextDate) {
-        _timerView.referenceDate = nextDate;
+    [scheduleViewController requestEventStoreAccessWithType:EKEntityTypeEvent completion:^(NSArray *eventArray) {
+        _timerView.referenceDate = [[eventArray firstObject] startDate];
     }];
 }
 

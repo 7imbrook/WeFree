@@ -16,6 +16,6 @@
 @property  NSTimeInterval nextDateHours;
 @property  NSTimeInterval nextDateMinutes;
 
-- (void)requestEventStoreAccessWithType:(EKEntityType)entityType completion:(void (^)(NSDate *nextDate))completion;
+- (void)requestEventStoreAccessWithType:(EKEntityType)entityType completion:(void (^)(NSArray *eventArray))completion;
 
 @end
