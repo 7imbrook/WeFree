@@ -20,6 +20,7 @@
 
 @property (strong, nonatomic) NearbyScene *scene;
 @property BOOL presented;
+@property BOOL promted;
 
 @end
 
@@ -54,6 +55,7 @@
 {
     [super viewDidLoad];
     _presented = NO;
+    _promted = NO;
 }
 
 - (IBAction)cancel:(id)sender
@@ -98,6 +100,7 @@
 - (void)dismissNearbyViewCompletion:(void(^)())completion
 {
     _presented = NO;
+    [MultipeerManager.sharedManager start];
     [UIView animateWithDuration:0.4 delay:0.0 options:UIViewAnimationOptionCurveEaseIn animations:^{
         self.view.frame = CGRectOffset(self.view.frame, 0.0, 320);
     } completion:nil];
@@ -178,6 +181,10 @@
 
 - (void)manager:(id)manager peerDidInstantiateScheduler:(MCPeerID *)peer
 {
+    if (_promted) {
+        return;
+    }
+    _promted = YES;
     AudioServicesPlayAlertSound(kSystemSoundID_Vibrate);
     dispatch_sync(dispatch_get_main_queue(), ^{
         UIAlertView *ask = [[UIAlertView alloc] initWithTitle:peer.displayName message:[NSString stringWithFormat:@"%@ would like to find when you're free.", peer.displayName] delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Ok", nil];
@@ -190,6 +197,7 @@
     if (buttonIndex == 1) {
         NSLog(@"Connect");
     }
+    _promted = NO;
 }
 
 - (void)didReceiveMemoryWarning
