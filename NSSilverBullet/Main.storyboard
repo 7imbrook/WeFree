@@ -114,7 +114,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Settings" id="udi-RY-yW5">
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="save" id="neV-rf-pWL">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="neV-rf-pWL">
                             <connections>
                                 <segue destination="FJ8-J8-vav" kind="unwind" unwindAction="unwindToHome:" id="QVI-xU-sQR"/>
                             </connections>
