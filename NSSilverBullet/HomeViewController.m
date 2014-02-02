@@ -23,7 +23,9 @@
     [super viewDidLoad];
 
     _timerView = [TimerView newTimerView];
+    
     _timerView.referenceDate = [NSDate date];
+
     [self.view addSubview:_timerView];
     
     ScheduleViewController *scheduleViewController = [ScheduleViewController new];

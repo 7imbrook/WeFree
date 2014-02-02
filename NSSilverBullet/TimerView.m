@@ -13,7 +13,7 @@
 @interface TimerView ()
 
 @property (weak, nonatomic) IBOutlet UILabel *timeOutlet;
-@property (weak, nonatomic) IBOutlet UILabel *relitiveTime;
+@property (weak, nonatomic) IBOutlet UILabel *relativeTime;
 
 @end
 
@@ -41,13 +41,18 @@
     [self updateTime];
 }
 
-- (NSString *)timeFormateForInterval:(NSTimeInterval)interval
+- (NSString *)timeFormatForInterval:(NSTimeInterval)interval
 {
     interval = fabs(interval);
+    interval = floor(interval);
+    //NSLog(@"Seconds: %f", interval);
+    NSLog(@"Seconds: %ld", lround(interval) % 60);
+    NSLog(@"Minutes: %ld", lround(floor(interval / 60.)) % 60);
+    NSLog(@"Hours: %ld", lround(interval / 3600.) % 100);
     return [NSString stringWithFormat:@"%02li:%02li:%02li",
-            lround(floor(interval / 3600.)) % 100,
-            lround(floor(interval / 60.)) % 60,
-            lround(floor(interval)) % 60];
+            lround(floor(interval / 3600.)) % 100,     // hours
+            lround(floor(interval / 60.)) % 60, // minutes
+            lround(floor(interval)) % 60];      // seconds
 }
 
 - (void)updateTime
@@ -61,8 +66,12 @@
         }];
     }
     NSTimeInterval interval = [_referenceDate timeIntervalSinceNow];
-    _relitiveTime.text = [_referenceDate relativeTime];
-    _timeOutlet.text = [self timeFormateForInterval:interval];
+    if (interval < 0) {
+        _timeOutlet.textColor = [UIColor redColor];
+    }
+    //NSLog(@"Interval: %f", interval);
+    _relativeTime.text = [_referenceDate relativeTime];
+    _timeOutlet.text = [self timeFormatForInterval:interval];
 }
 
 - (void)drawRect:(CGRect)rect

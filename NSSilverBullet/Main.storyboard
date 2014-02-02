@@ -17,11 +17,9 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kYr-NO-8QV">
-                                <rect key="frame" x="108" y="269" width="105" height="30"/>
+                                <rect key="frame" x="68" y="131" width="185" height="158"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Add Event">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
+                                <state key="normal" title="Add Event"/>
                                 <connections>
                                     <segue destination="68H-2n-b0d" kind="push" id="RCB-1q-Dsp"/>
                                 </connections>
