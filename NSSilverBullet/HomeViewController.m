@@ -21,9 +21,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+
     // Create and add timer view
     _timerView = [TimerView newTimerView];
+    [_timerView setFrame:CGRectMake(0., 20., [UIScreen mainScreen].bounds.size.width, _timerView.frame.size.height)];
+    
     [self.view addSubview:_timerView];
     
     // Create SVC, request calendar data and set appropriate referenceDate

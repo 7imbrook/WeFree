@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		105C13F0189EFFF8008A3806 /* MWCalendarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 105C13EF189EFFF8008A3806 /* MWCalendarButton.m */; };
+		105C13F2189F0B63008A3806 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 105C13F1189F0B63008A3806 /* Main.storyboard */; };
 		4C840A48189AE96D00272609 /* TimerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C840A47189AE96D00272609 /* TimerView.m */; };
 		4C840A4A189AE98D00272609 /* TimerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C840A49189AE98D00272609 /* TimerView.xib */; };
 		4CB41359189AB5D600D330E8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CB41358189AB5D600D330E8 /* Foundation.framework */; };
@@ -25,7 +26,6 @@
 		4CC2A35B189AE29000675ACF /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC2A35A189AE29000675ACF /* HomeViewController.m */; };
 		4CC2A35E189AE2AA00675ACF /* ScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC2A35D189AE2AA00675ACF /* ScheduleViewController.m */; };
 		4CC2A361189AE2E200675ACF /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC2A360189AE2E200675ACF /* SettingsViewController.m */; };
-		4CC2A363189AE2FD00675ACF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CC2A362189AE2FD00675ACF /* Main.storyboard */; };
 		4E970AB9852843BD96BE1B40 /* libPods-NSSilverBullet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 97A66CD47EAB4925B8C0D190 /* libPods-NSSilverBullet.a */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +42,7 @@
 /* Begin PBXFileReference section */
 		105C13EE189EFFF8008A3806 /* MWCalendarButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWCalendarButton.h; sourceTree = "<group>"; };
 		105C13EF189EFFF8008A3806 /* MWCalendarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWCalendarButton.m; sourceTree = "<group>"; };
+		105C13F1189F0B63008A3806 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		4C840A46189AE96D00272609 /* TimerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimerView.h; sourceTree = "<group>"; };
 		4C840A47189AE96D00272609 /* TimerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimerView.m; sourceTree = "<group>"; };
 		4C840A49189AE98D00272609 /* TimerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimerView.xib; sourceTree = "<group>"; };
@@ -67,7 +68,6 @@
 		4CC2A35D189AE2AA00675ACF /* ScheduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScheduleViewController.m; sourceTree = "<group>"; };
 		4CC2A35F189AE2E200675ACF /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		4CC2A360189AE2E200675ACF /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
-		4CC2A362189AE2FD00675ACF /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		783D1B6B284E4A7E8CE8F43E /* Pods-NSSilverBullet.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NSSilverBullet.xcconfig"; path = "Pods/Pods-NSSilverBullet.xcconfig"; sourceTree = "<group>"; };
 		97A66CD47EAB4925B8C0D190 /* libPods-NSSilverBullet.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NSSilverBullet.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -132,6 +132,7 @@
 		4CB4135E189AB5D600D330E8 /* NSSilverBullet */ = {
 			isa = PBXGroup;
 			children = (
+				105C13F1189F0B63008A3806 /* Main.storyboard */,
 				4CB4138A189AB60000D330E8 /* Templates */,
 				4CB41389189AB5FA00D330E8 /* Views */,
 				4CB41388189AB5F700D330E8 /* Helpers */,
@@ -139,7 +140,6 @@
 				4CB41387189AB5F000D330E8 /* Controllers */,
 				4CB41367189AB5D600D330E8 /* AppDelegate.h */,
 				4CB41368189AB5D600D330E8 /* AppDelegate.m */,
-				4CC2A362189AE2FD00675ACF /* Main.storyboard */,
 				4CB4136A189AB5D600D330E8 /* Images.xcassets */,
 				4CB4135F189AB5D600D330E8 /* Supporting Files */,
 			);
@@ -299,9 +299,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C840A4A189AE98D00272609 /* TimerView.xib in Resources */,
-				4CC2A363189AE2FD00675ACF /* Main.storyboard in Resources */,
 				4CB41363189AB5D600D330E8 /* InfoPlist.strings in Resources */,
 				4CB4136B189AB5D600D330E8 /* Images.xcassets in Resources */,
+				105C13F2189F0B63008A3806 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
