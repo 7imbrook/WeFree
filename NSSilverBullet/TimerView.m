@@ -46,9 +46,9 @@
     interval = fabs(interval);
     interval = floor(interval);
     //NSLog(@"Seconds: %f", interval);
-    NSLog(@"Seconds: %ld", lround(interval) % 60);
-    NSLog(@"Minutes: %ld", lround(floor(interval / 60.)) % 60);
-    NSLog(@"Hours: %ld", lround(interval / 3600.) % 100);
+//    NSLog(@"Seconds: %ld", lround(interval) % 60);
+//    NSLog(@"Minutes: %ld", lround(floor(interval / 60.)) % 60);
+//    NSLog(@"Hours: %ld", lround(interval / 3600.) % 100);
     return [NSString stringWithFormat:@"%02li:%02li:%02li",
             lround(floor(interval / 3600.)) % 100,     // hours
             lround(floor(interval / 60.)) % 60, // minutes
