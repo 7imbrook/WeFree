@@ -16,6 +16,8 @@ extern NSString *OTServiceName;
 - (void)manager:(id)manager didDiscoverUser:(MCPeerID *)user withEmail:(NSString *)email;
 - (void)manager:(id)manager didLoseUser:(MCPeerID *)user;
 
+- (void)manager:(id)manager peerDidInstantiateScheduler:(MCPeerID *)peer;
+
 @end
 
 @interface MultipeerManager : NSObject

@@ -143,6 +143,8 @@ NSString* StringFromState(MCSessionState state) {
         NSString *email = [NSString stringWithUTF8String:body.bytes];
         NSLog(@"Email: %@", email);
         [_delegate manager:self didDiscoverUser:peerID withEmail:email];
+    } else if ([header isEqualToData:[NSData dataWithBytes:"VIBRATE000" length:10]]) {
+        [_delegate manager:self peerDidInstantiateScheduler:peerID];
     }
 }
 

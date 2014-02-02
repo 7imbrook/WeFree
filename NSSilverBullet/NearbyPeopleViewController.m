@@ -6,6 +6,8 @@
 //  Copyright (c) 2014 AppChallenge. All rights reserved.
 //
 
+@import AudioToolbox;
+
 #import "NearbyPeopleViewController.h"
 #import "UIImage+RoundedImage.h"
 #import "NearbyScene.h"
@@ -115,6 +117,13 @@
 - (void)sprite:(SKSpriteNode *)node touched:(BOOL)touched
 {
     NSLog(@"%@ touched", node.name);
+    NSArray *peers = [MultipeerManager.sharedManager session].connectedPeers;
+    NSArray *p = [peers filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(MCPeerID *peer, NSDictionary *bindings) {
+        return (peer.displayName == node.name);
+    }]];
+    MCPeerID *peer = p.firstObject;
+
+    [[MultipeerManager.sharedManager session] sendData:[NSData dataWithBytes:"VIBRATE000" length:10] toPeers:@[peer] withMode:MCSessionSendDataReliable error:nil];
 }
 
 #pragma mark delegotsomethods
@@ -164,6 +173,22 @@
         [self dismissNearbyViewCompletion:^{
             NSLog(@"Goodbye");
         }];
+    }
+}
+
+- (void)manager:(id)manager peerDidInstantiateScheduler:(MCPeerID *)peer
+{
+    AudioServicesPlayAlertSound(kSystemSoundID_Vibrate);
+    dispatch_sync(dispatch_get_main_queue(), ^{
+        UIAlertView *ask = [[UIAlertView alloc] initWithTitle:peer.displayName message:[NSString stringWithFormat:@"%@ would like to find when you're free.", peer.displayName] delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Ok", nil];
+        [ask show];
+    });
+}
+
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 1) {
+        NSLog(@"Connect");
     }
 }
 

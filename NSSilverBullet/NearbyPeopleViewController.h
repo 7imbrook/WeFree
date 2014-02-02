@@ -11,6 +11,6 @@
 #import "MultipeerManager.h"
 #import "SpriteHead.h"
 
-@interface NearbyPeopleViewController : UIViewController <MultipeerNearbyDelegate, OTSpriteTouchDelegate>
+@interface NearbyPeopleViewController : UIViewController <MultipeerNearbyDelegate, OTSpriteTouchDelegate, UIAlertViewDelegate>
 
 @end
