@@ -9,6 +9,7 @@
 #import "NearbyPeopleViewController.h"
 #import "UIImage+RoundedImage.h"
 #import "NearbyScene.h"
+#import "SettingsViewController.h"
 #import <UIColor+Colours.h>
 #import <AddressBook/AddressBook.h>
 #import <CommonCrypto/CommonDigest.h>
@@ -53,11 +54,21 @@
     _presented = NO;
 }
 
+- (IBAction)cancel:(id)sender
+{
+    MCSession *session = [MultipeerManager.sharedManager session];
+    [session sendData:nil toPeers:session.connectedPeers withMode:MCSessionSendDataUnreliable error:nil];
+    [session disconnect];
+    [self dismissNearbyViewCompletion:^{
+
+    }];
+}
+
 - (void)presentNearbyViewCompletion:(void(^)())completion
 {
     // Present the scene.
     _presented = YES;
-    NSString *aEmail = [[NSUserDefaults standardUserDefaults] valueForKey:@"gravitarEmail"] ?: @"";
+    NSString *aEmail = [[NSUserDefaults standardUserDefaults] valueForKey:OTUserDefaultsGravatarEmailKey] ?: @"";
     NSString *email = [[aEmail stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] lowercaseString];
     NSString *emailMD5 = [self md5HexDigest:email];
     NSString *gravatarString = [NSString stringWithFormat:@"http://www.gravatar.com/avatar/%@?s=%@&d=%@", emailMD5, @"200", @"mm"];
@@ -84,9 +95,19 @@
     }];
 }
 
+- (void)dismissNearbyViewCompletion:(void(^)())completion
+{
+    _presented = NO;
+    [UIView animateWithDuration:0.4 delay:0.0 options:UIViewAnimationOptionCurveEaseIn animations:^{
+        self.view.frame = CGRectOffset(self.view.frame, 0.0, 320);
+    } completion:^(BOOL finished) {
+        [_scene removeAllChildren];
+    }];
+}
+
 - (void)addHeadWithImage:(UIImage *)image named:(NSString *)name
 {
-    SKSpriteNode *newHead = [_scene floatingHeadWithImage:[UIImage imageNamed:@"none"] name:name pulsing:NO];
+    SKSpriteNode *newHead = [_scene floatingHeadWithImage:image name:name pulsing:NO];
     newHead.position = CGPointMake(_scene.frame.size.width / 2.0, 250);
     newHead.name = name;
     newHead.alpha = 0.0;
@@ -97,15 +118,37 @@
 
 #pragma mark delegotsomethods
 
-- (void)manager:(id)manager didDiscoverUser:(MCPeerID *)user
+- (void)manager:(id)manager didDiscoverUser:(MCPeerID *)user withEmail:(NSString *)email
 {
-    NSLog(@"NBVC - %@", user.displayName);
+    NSLog(@"NBVC - %@ <%@>", user.displayName, email);
     if (!_presented) {
         [self presentNearbyViewCompletion:^{
-            [self addHeadWithImage:[UIImage imageNamed:@"none"] named:user.displayName];
+            NSString *emailMD5 = [self md5HexDigest:email];
+            NSString *gravatarString = [NSString stringWithFormat:@"http://www.gravatar.com/avatar/%@?s=%@&d=%@", emailMD5, @"200", @"mm"];
+            NSURLRequest *gravitar = [NSURLRequest requestWithURL:[NSURL URLWithString:gravatarString]];
+            [NSURLConnection sendAsynchronousRequest:gravitar queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+                UIImage *img;
+                if (response) {
+                    img = [UIImage imageWithData:data];
+                } else {
+                    img = [UIImage imageNamed:@"none"];
+                }
+                [self addHeadWithImage:img named:user.displayName];
+            }];
         }];
     } else {
-        [self addHeadWithImage:[UIImage imageNamed:@"none"] named:user.displayName];
+        NSString *emailMD5 = [self md5HexDigest:email];
+        NSString *gravatarString = [NSString stringWithFormat:@"http://www.gravatar.com/avatar/%@?s=%@&d=%@", emailMD5, @"200", @"mm"];
+        NSURLRequest *gravitar = [NSURLRequest requestWithURL:[NSURL URLWithString:gravatarString]];
+        [NSURLConnection sendAsynchronousRequest:gravitar queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+            UIImage *img;
+            if (response) {
+                img = [UIImage imageWithData:data];
+            } else {
+                img = [UIImage imageNamed:@"none"];
+            }
+            [self addHeadWithImage:img named:user.displayName];
+        }];
     }
 
 }
@@ -114,8 +157,13 @@
 {
     SKNode *bye = [_scene childNodeWithName:user.displayName];
     [bye runAction:[SKAction fadeAlphaTo:0.0 duration:1.0] completion:^{
-        [_scene removeChildrenInArray:@[]];
+        [_scene removeChildrenInArray:@[bye]];
     }];
+    if ([MultipeerManager.sharedManager session].connectedPeers.count <= 0) {
+        [self dismissNearbyViewCompletion:^{
+            NSLog(@"Goodbye");
+        }];
+    }
 }
 
 - (void)didReceiveMemoryWarning

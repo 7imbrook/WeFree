@@ -7,10 +7,27 @@
 //
 
 #import "MultipeerManager.h"
+#import "SettingsViewController.h"
 
-#define NSLog(...)
+//#define NSLog(...)
 
 NSString *OTServiceName = @"OT-Nearby";
+
+NSString* StringFromState(MCSessionState state) {
+    NSString *stateString;
+    switch (state) {
+        case MCSessionStateConnected:
+            stateString = @"MCSessionStateConnected";
+            break;
+        case MCSessionStateConnecting:
+            stateString = @"MCSessionStateConnecting";
+            break;
+        case MCSessionStateNotConnected:
+            stateString = @"MCSessionStateNotConnected";
+            break;
+    }
+    return stateString;
+}
 
 @interface MultipeerManager () <MCNearbyServiceAdvertiserDelegate, MCNearbyServiceBrowserDelegate, MCSessionDelegate>
 
@@ -61,19 +78,23 @@ NSString *OTServiceName = @"OT-Nearby";
 
 - (void)stop
 {
+    NSLog(@"Stopping...");
     [_advertiser stopAdvertisingPeer];
     [_browser stopBrowsingForPeers];
     [_session disconnect];
+    NSLog(@"Stopped");
 }
 
 - (void)startAdvertising
 {
     [_advertiser startAdvertisingPeer];
+    NSLog(@"Advertiser status: %@", _advertiser.debugDescription);
 }
 
 - (void)startListening
 {
     [_browser startBrowsingForPeers];
+    NSLog(@"Browser status: %@", _browser.debugDescription);
 }
 
 #pragma mark MCNearbyServiceAdvertiserDelegate
@@ -83,9 +104,10 @@ NSString *OTServiceName = @"OT-Nearby";
                                                                       invitationHandler:(void (^)(BOOL, MCSession *))invitationHandler
 {
     NSLog(@"%@ requested invite in context %@", peerID.displayName, context);
-    if ([context isEqualToData:[NSData dataWithBytes:"OPMT" length:4]] && ![_peers containsObject:peerID]) {
+    if ([context isEqualToData:[NSData dataWithBytes:"OPMT" length:4]] && ![[_session connectedPeers] containsObject:peerID]) {
         [_peers addObject:peerID];
         NSLog(@"Accepted");
+        [_browser stopBrowsingForPeers];
         invitationHandler(YES, _session);
     } else {
         NSLog(@"Rejected");
@@ -98,10 +120,12 @@ NSString *OTServiceName = @"OT-Nearby";
 - (void)browser:(MCNearbyServiceBrowser *)browser foundPeer:(MCPeerID *)peerID withDiscoveryInfo:(NSDictionary *)info
 {
     NSLog(@"%@ has been found", peerID.displayName);
-    if ([_peers containsObject:peerID]) {
+    if ([[_session connectedPeers] containsObject:peerID]) {
         NSLog(@"Not connecting to %@", peerID.displayName);
         return;
     }
+    [_advertiser stopAdvertisingPeer];
+    NSLog(@"Inviting to session %@", _session);
     [_peers addObject:peerID];
     [_browser invitePeer:peerID toSession:_session withContext:[NSData dataWithBytes:"OPMT" length:4] timeout:10];
 }
@@ -117,6 +141,13 @@ NSString *OTServiceName = @"OT-Nearby";
 - (void)session:(MCSession *)session didReceiveData:(NSData *)data fromPeer:(MCPeerID *)peerID
 {
     NSLog(@"%@ got %@ from %@", _peerid, data, peerID);
+    NSData *header = [data subdataWithRange:NSMakeRange(0, 10)];
+    NSData *body = [data subdataWithRange:NSMakeRange(10, data.length - 10)];
+    if ([header isEqualToData:[NSData dataWithBytes:"EMAIL00000" length:10]]) {
+        NSString *email = [NSString stringWithUTF8String:body.bytes];
+        NSLog(@"Email: %@", email);
+        [_delegate manager:self didDiscoverUser:peerID withEmail:email];
+    }
 }
 
 - (void)session:(MCSession *)session didStartReceivingResourceWithName:(NSString *)resourceName fromPeer:(MCPeerID *)peerID withProgress:(NSProgress *)progress
@@ -136,9 +167,12 @@ NSString *OTServiceName = @"OT-Nearby";
 
 - (void)session:(MCSession *)session peer:(MCPeerID *)peerID didChangeState:(MCSessionState)state
 {
-    NSLog(@"Changed State to %@", state == MCSessionStateConnected ? @"Connected" : @"not connected");
+    NSLog(@"%@ changed State to %@", peerID.displayName, StringFromState(state));
     if (state == MCSessionStateConnected) {
-        [_delegate manager:self didDiscoverUser:peerID];
+        NSString *email = [[NSUserDefaults standardUserDefaults] valueForKey:OTUserDefaultsGravatarEmailKey] ?: @"";
+        NSMutableData *data = [NSMutableData dataWithBytes:"EMAIL00000" length:10];
+        [data appendData:[NSData dataWithBytes:email.UTF8String length:email.length]];
+        [_session sendData:data toPeers:@[peerID] withMode:MCSessionSendDataReliable error:nil];
     } else if (state == MCSessionStateNotConnected) {
         [_delegate manager:self didLoseUser:peerID];
     }

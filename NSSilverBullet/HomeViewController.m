@@ -48,6 +48,11 @@
 
 }
 
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [MultipeerManager.sharedManager stop];
+}
+
 - (IBAction)unwindToHome:(UIStoryboardSegue *)unwindSegue
 {
 
@@ -58,6 +63,11 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
+}
+
+- (void)dealloc
+{
+    [MultipeerManager.sharedManager stop];
 }
 
 @end

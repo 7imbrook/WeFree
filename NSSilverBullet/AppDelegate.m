@@ -13,7 +13,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [[NSUserDefaults standardUserDefaults] setValue:@"timbrook480@gmail.com" forKey:@"gravitarEmail"];
     return YES;
 }
 

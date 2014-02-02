@@ -13,7 +13,7 @@ extern NSString *OTServiceName;
 
 @protocol MultipeerNearbyDelegate <NSObject>
 
-- (void)manager:(id)manager didDiscoverUser:(MCPeerID *)user;
+- (void)manager:(id)manager didDiscoverUser:(MCPeerID *)user withEmail:(NSString *)email;
 - (void)manager:(id)manager didLoseUser:(MCPeerID *)user;
 
 @end
