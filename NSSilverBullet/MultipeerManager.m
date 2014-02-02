@@ -9,7 +9,7 @@
 #import "MultipeerManager.h"
 #import "SettingsViewController.h"
 
-//#define NSLog(...)
+#define NSLog(...)
 
 NSString *OTServiceName = @"OT-Nearby";
 
@@ -62,8 +62,6 @@ NSString* StringFromState(MCSessionState state) {
 
         _browser = [[MCNearbyServiceBrowser alloc] initWithPeer:_peerid serviceType:OTServiceName];
         _browser.delegate = self;
-
-        _peers = [@[] mutableCopy];
     }
     return self;
 }
@@ -105,7 +103,6 @@ NSString* StringFromState(MCSessionState state) {
 {
     NSLog(@"%@ requested invite in context %@", peerID.displayName, context);
     if ([context isEqualToData:[NSData dataWithBytes:"OPMT" length:4]] && ![[_session connectedPeers] containsObject:peerID]) {
-        [_peers addObject:peerID];
         NSLog(@"Accepted");
         [_browser stopBrowsingForPeers];
         invitationHandler(YES, _session);
@@ -126,14 +123,13 @@ NSString* StringFromState(MCSessionState state) {
     }
     [_advertiser stopAdvertisingPeer];
     NSLog(@"Inviting to session %@", _session);
-    [_peers addObject:peerID];
     [_browser invitePeer:peerID toSession:_session withContext:[NSData dataWithBytes:"OPMT" length:4] timeout:10];
 }
 
 - (void)browser:(MCNearbyServiceBrowser *)browser lostPeer:(MCPeerID *)peerID
 {
     NSLog(@"Lost peer %@", peerID.displayName);
-    [_peers removeObject:peerID];
+    [_delegate manager:self didLoseUser:peerID];
 }
 
 #pragma mark MCSessionDelegate

@@ -7,6 +7,7 @@
 //
 
 #import "NearbyScene.h"
+#import "SpriteHead.h"
 #import "UIImage+RoundedImage.h"
 #import <UIColor+Colours.h>
 
@@ -20,10 +21,10 @@
     if (self) {
 
         self.backgroundColor = [UIColor icebergColor];
-
+        
         if (image) {
             CGPoint center = CGPointMake(self.frame.size.width / 2.0, self.frame.size.height / 2.0);
-            head = [self floatingHeadWithImage:image name:@"" pulsing:YES];
+            head = [self floatingHeadWithImage:image name:@"" touchDelegate:nil pulsing:YES];
             head.position = CGPointMake(center.x, -100);
             [self addChild:head];
         }
@@ -42,13 +43,15 @@
     [head runAction:[SKAction moveTo:CGPointMake(center.x, 100) duration:0.5]];
 }
 
-- (SKSpriteNode *)floatingHeadWithImage:(UIImage *)image name:(NSString *)nodename pulsing:(BOOL)pulse
+- (SKSpriteNode *)floatingHeadWithImage:(UIImage *)image name:(NSString *)nodename touchDelegate:(id<OTSpriteTouchDelegate>)delegate pulsing:(BOOL)pulse
 {
     // Create Head
     UIImage *img = [UIImage roundedImageWithImage:image];
     SKTexture *texture = [SKTexture textureWithImage:img];
-    SKSpriteNode *headSet = [SKSpriteNode spriteNodeWithTexture:texture size:CGSizeMake(100, 100)];
-
+    SpriteHead *headSet = [SpriteHead spriteNodeWithTexture:texture size:CGSizeMake(100, 100)];
+    headSet.delegate = delegate;
+    headSet.userInteractionEnabled = YES;
+    
     // Add Text
     SKLabelNode *name = [SKLabelNode labelNodeWithFontNamed:@"Avenir-Light"];
     name.text = nodename;

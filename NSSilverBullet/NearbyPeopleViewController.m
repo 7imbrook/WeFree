@@ -56,11 +56,9 @@
 
 - (IBAction)cancel:(id)sender
 {
-    MCSession *session = [MultipeerManager.sharedManager session];
-    [session sendData:nil toPeers:session.connectedPeers withMode:MCSessionSendDataUnreliable error:nil];
-    [session disconnect];
+    [MultipeerManager.sharedManager stop];
     [self dismissNearbyViewCompletion:^{
-
+        //
     }];
 }
 
@@ -100,20 +98,23 @@
     _presented = NO;
     [UIView animateWithDuration:0.4 delay:0.0 options:UIViewAnimationOptionCurveEaseIn animations:^{
         self.view.frame = CGRectOffset(self.view.frame, 0.0, 320);
-    } completion:^(BOOL finished) {
-        [_scene removeAllChildren];
-    }];
+    } completion:nil];
 }
 
 - (void)addHeadWithImage:(UIImage *)image named:(NSString *)name
 {
-    SKSpriteNode *newHead = [_scene floatingHeadWithImage:image name:name pulsing:NO];
+    SKSpriteNode *newHead = [_scene floatingHeadWithImage:image name:name touchDelegate:self pulsing:NO];
     newHead.position = CGPointMake(_scene.frame.size.width / 2.0, 250);
     newHead.name = name;
     newHead.alpha = 0.0;
     [_scene addChild:newHead];
     NSArray *actions = @[[SKAction waitForDuration:2.5], [SKAction fadeAlphaTo:1.0 duration:0.3]];
     [newHead runAction:[SKAction group:actions]];
+}
+
+- (void)sprite:(SKSpriteNode *)node touched:(BOOL)touched
+{
+    NSLog(@"%@ touched", node.name);
 }
 
 #pragma mark delegotsomethods

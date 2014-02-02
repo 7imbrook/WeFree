@@ -48,6 +48,11 @@
 
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [MultipeerManager.sharedManager start];
+}
+
 - (void)viewDidDisappear:(BOOL)animated
 {
     [MultipeerManager.sharedManager stop];

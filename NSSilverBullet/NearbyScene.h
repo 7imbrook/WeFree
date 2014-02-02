@@ -7,11 +7,12 @@
 //
 
 #import <SpriteKit/SpriteKit.h>
+#import "SpriteHead.h"
 
 @interface NearbyScene : SKScene
 
 - (id)initWithSize:(CGSize)size andHeadImage:(UIImage *)image;
-- (SKSpriteNode *)floatingHeadWithImage:(UIImage *)image name:(NSString *)nodename pulsing:(BOOL)pulse;
+- (SKSpriteNode *)floatingHeadWithImage:(UIImage *)image name:(NSString *)nodename touchDelegate:(id<OTSpriteTouchDelegate>)delegate pulsing:(BOOL)pulse;
 
 - (void)animateMainHeadToScreen;
 - (void)animateMainHeadOffScreen;

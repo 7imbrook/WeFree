@@ -21,7 +21,6 @@ extern NSString *OTServiceName;
 @interface MultipeerManager : NSObject
 
 @property (strong) MCSession *session;
-@property (strong) NSMutableArray *peers;
 
 @property (strong) id<MultipeerNearbyDelegate> delegate;
 
