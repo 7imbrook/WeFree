@@ -72,6 +72,7 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="eventTitle" destination="rMU-QJ-Uhh" id="Wn0-sK-2v0"/>
                 <outlet property="relativeTime" destination="Agj-Gd-n3S" id="INJ-iB-6eb"/>
                 <outlet property="timeOutlet" destination="nVp-20-NNZ" id="N00-zr-5lO"/>
             </connections>

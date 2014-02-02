@@ -14,6 +14,7 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *timeOutlet;
 @property (weak, nonatomic) IBOutlet UILabel *relativeTime;
+@property (weak, nonatomic) IBOutlet UILabel *eventTitle;
 
 @end
 
@@ -74,6 +75,7 @@
     //NSLog(@"Interval: %f", interval);
     _relativeTime.text = [_referenceDate relativeTime];
     _timeOutlet.text = [self timeFormatForInterval:interval];
+    _eventTitle.text = _nextEvent;
 }
 
 - (void)drawRect:(CGRect)rect
