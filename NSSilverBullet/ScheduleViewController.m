@@ -61,7 +61,7 @@
  * Fetches calendar event data from the event store using an NSPredicate. Formats
  * the calendar data into minutes and hours.
  */
-- (void)requestEventStoreAccessWithType:(EKEntityType)entityType completion:(void (^)(NSArray *eventArray))completion
+- (void)requestEventStoreAccessWithType:(EKEntityType)entityType completion:(void (^)(NSMutableArray *eventArray))completion
 {
     if(!_eventStore) {
         _eventStore = [EKEventStore new];
@@ -79,9 +79,17 @@
         NSPredicate *predicate = [_eventStore predicateForEventsWithStartDate:[NSDate date]
                                                                       endDate:aWeek
                                                                     calendars:nil];
-        
         // Fetch all events that match the predicate
-        NSArray *events = [_eventStore eventsMatchingPredicate:predicate];
+        NSMutableArray *events = [NSMutableArray arrayWithArray:[_eventStore eventsMatchingPredicate:predicate]];
+        NSMutableArray *pastEvents = [NSMutableArray array];
+        
+        // Remove past events, including events happening now
+        for (EKEvent *event in events){
+            if ([event.startDate timeIntervalSinceDate:[NSDate date]] <= 0){
+                [pastEvents addObject:event];
+            }
+        }
+        [events removeObjectsInArray:pastEvents];
         
         // Pass the events array to the HVC completion block
         completion(events);

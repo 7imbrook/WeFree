@@ -12,6 +12,6 @@
 
 @interface ScheduleViewController : UICollectionViewController
 
-- (void)requestEventStoreAccessWithType:(EKEntityType)entityType completion:(void (^)(NSArray *eventArray))completion;
+- (void)requestEventStoreAccessWithType:(EKEntityType)entityType completion:(void (^)(NSMutableArray *eventArray))completion;
 
 @end
