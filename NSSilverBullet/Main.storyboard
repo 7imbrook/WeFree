@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <scenes>
-        <!--Home View Controller-->
+        <!--Home View Controller - MeWe-->
         <scene sceneID="NTu-Oj-dxE">
             <objects>
                 <viewController id="ra7-W1-aql" customClass="HomeViewController" sceneMemberID="viewController">
@@ -16,10 +16,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kYr-NO-8QV">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kYr-NO-8QV" customClass="MWCalendarButton">
                                 <rect key="frame" x="68" y="131" width="185" height="158"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Add Event"/>
+                                <state key="normal" title="Add Event">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
                                 <connections>
                                     <segue destination="68H-2n-b0d" kind="push" id="RCB-1q-Dsp"/>
                                 </connections>
@@ -37,7 +39,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Zr3-at-Xpl"/>
+                    <navigationItem key="navigationItem" title="MeWe" id="Zr3-at-Xpl"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xj4-da-8CI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -177,6 +179,10 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="uuB-LZ-ozI">
+                        <rect key="frame" x="0.0" y="416" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="ra7-W1-aql" kind="relationship" relationship="rootViewController" id="kcd-vm-BnK"/>
                     </connections>

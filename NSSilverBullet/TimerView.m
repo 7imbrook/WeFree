@@ -68,6 +68,8 @@
     NSTimeInterval interval = [_referenceDate timeIntervalSinceNow];
     if (interval < 0) {
         _timeOutlet.textColor = [UIColor redColor];
+    } else if (interval > 0) {
+        _timeOutlet.textColor = [UIColor greenColor];
     }
     //NSLog(@"Interval: %f", interval);
     _relativeTime.text = [_referenceDate relativeTime];
