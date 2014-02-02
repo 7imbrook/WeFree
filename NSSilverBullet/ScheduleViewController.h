@@ -10,4 +10,8 @@
 
 @interface ScheduleViewController : UICollectionViewController
 
+@property NSDate *nextDate;
+
+- (NSDate *)fetchNextDate;
+
 @end

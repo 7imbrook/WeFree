@@ -74,6 +74,10 @@
         _eventStore = [EKEventStore new];
     }
     
+    if(!_nextDate) {
+        _nextDate = [NSDate new];
+    }
+    
     [_eventStore requestAccessToEntityType:entityType completion:^(BOOL granted, NSError *error) {
         NSCalendar *calendar = [NSCalendar currentCalendar];
         
@@ -99,19 +103,15 @@
         // Fetch all events that match the predicate
         NSArray *events = [_eventStore eventsMatchingPredicate:predicate];
         
-        for (EKEvent *event in events){
-            // Format date to MM/DD/YY
-            NSDateFormatter *dateFormatter = [NSDateFormatter new];
-            [dateFormatter setDateStyle:NSDateFormatterShortStyle];
-            
-            NSDateComponents *components = [calendar components:(NSHourCalendarUnit | NSMinuteCalendarUnit) fromDate:event.startDate];
-            
-            NSInteger hour = [components hour];
-            NSInteger minute = [components minute];
-            
-            NSLog(@"%@ %ld:%ld", [dateFormatter stringFromDate:event.startDate],  (long)hour, (long)minute);
-        }
+        // Events are chronologically added to the array
+        _nextDate = [[events firstObject] startDate];
     }];
+}
+
+- (NSDate *)fetchNextDate
+{
+    [self requestEventStoreAccessWithType:EKEntityTypeEvent];
+    return _nextDate;
 }
 
 

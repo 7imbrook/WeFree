@@ -8,6 +8,7 @@
 
 #import "HomeViewController.h"
 #import "TimerView.h"
+#import "ScheduleViewController.h"
 
 @interface HomeViewController ()
 
@@ -20,10 +21,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+
     _timerView = [TimerView newTimerView];
     _timerView.referenceDate = [NSDate date];
+    
     [self.view addSubview:_timerView];
+    
+    ScheduleViewController *svc = [ScheduleViewController new];
+    _timerView.referenceDate = [svc fetchNextDate];
 }
 
 - (IBAction)unwindToHome:(UIStoryboardSegue *)unwindSegue
