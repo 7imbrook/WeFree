@@ -21,16 +21,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    _timerView = [TimerView newTimerView];
     
-    _timerView.referenceDate = [NSDate date];
-
+    // Create and add timer view
+    _timerView = [TimerView newTimerView];
     [self.view addSubview:_timerView];
     
+    // Create SVC, request calendar data and set appropriate referenceDate
     ScheduleViewController *scheduleViewController = [ScheduleViewController new];
-    [scheduleViewController requestEventStoreAccessWithType:EKEntityTypeEvent completion:^(NSArray *eventArray) {
-        _timerView.referenceDate = [[eventArray firstObject] startDate];
+    [scheduleViewController requestEventStoreAccessWithType:EKEntityTypeEvent completion:^(NSArray *events) {
+        _timerView.referenceDate = [[events firstObject] startDate];
     }];
 }
 
