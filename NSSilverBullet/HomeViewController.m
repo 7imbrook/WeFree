@@ -30,6 +30,7 @@
     ScheduleViewController *scheduleViewController = [ScheduleViewController new];
     [scheduleViewController requestEventStoreAccessWithType:EKEntityTypeEvent completion:^(NSArray *events) {
         _timerView.referenceDate = [[events firstObject] startDate];
+        _timerView.nextEvent = [[events firstObject]title];
     }];
 }
 

@@ -11,6 +11,7 @@
 @interface TimerView : UIView
 
 @property (strong) NSDate *referenceDate;
+@property (strong) NSString *nextEvent;
 
 + (instancetype)newTimerView;
 
