@@ -6,6 +6,8 @@
 //  Copyright (c) 2014 AppChallenge. All rights reserved.
 //
 
+#import <Colours/UIColor+Colours.h>
+
 #import "MWCalendarButton.h"
 
 @implementation MWCalendarButton
@@ -27,7 +29,7 @@
     // Drawing code
     
     //// Color Declarations
-    UIColor* color0 = [UIColor colorWithRed: 0 green: 0 blue: 0 alpha: 1];
+    UIColor* color0 = [UIColor charcoalColor];
     
     //// Frames
     CGRect frame = CGRectMake(0, 0, 108, 116);

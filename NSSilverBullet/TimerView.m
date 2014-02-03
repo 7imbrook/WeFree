@@ -7,6 +7,7 @@
 //
 
 #import <NSDate+RelativeTime/NSDate+RelativeTime.h>
+#import <Colours/UIColor+Colours.h>
 
 #import "TimerView.h"
 
@@ -70,7 +71,7 @@
     if (interval < 0) {
         self.backgroundColor = [UIColor redColor];
     } else if (interval > 0) {
-        self.backgroundColor = [UIColor greenColor];
+        self.backgroundColor = [UIColor grassColor];
     }
     _timeCountdown.text = [self timeFormatForInterval:interval];
     _eventTitle.text = _nextEvent;
