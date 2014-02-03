@@ -12,8 +12,7 @@
 
 @interface TimerView ()
 
-@property (weak, nonatomic) IBOutlet UILabel *timeOutlet;
-@property (weak, nonatomic) IBOutlet UILabel *relativeTime;
+@property (weak, nonatomic) IBOutlet UILabel *timeCountdown;
 @property (weak, nonatomic) IBOutlet UILabel *eventTitle;
 
 @end
@@ -30,8 +29,12 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
-        self.backgroundColor = [UIColor clearColor];
+        self.backgroundColor = [UIColor whiteColor];
+        _timeCountdown.backgroundColor = [UIColor clearColor];
     }
+    
+    
+    
     return self;
 }
 
@@ -68,13 +71,11 @@
     }
     NSTimeInterval interval = [_referenceDate timeIntervalSinceNow];
     if (interval < 0) {
-        _timeOutlet.textColor = [UIColor redColor];
+        self.backgroundColor = [UIColor redColor];
     } else if (interval > 0) {
-        _timeOutlet.textColor = [UIColor greenColor];
+        self.backgroundColor = [UIColor greenColor];
     }
-    //NSLog(@"Interval: %f", interval);
-    _relativeTime.text = [_referenceDate relativeTime];
-    _timeOutlet.text = [self timeFormatForInterval:interval];
+    _timeCountdown.text = [self timeFormatForInterval:interval];
     _eventTitle.text = _nextEvent;
 }
 

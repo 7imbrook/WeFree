@@ -27,10 +27,10 @@
     
     NSArray *ver = [[UIDevice currentDevice].systemVersion componentsSeparatedByString:@"."];
     if ([[ver objectAtIndex:0] intValue] >= 7) {
-        self.navigationController.navigationBar.barTintColor = [UIColor greenColor];
+        self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
         self.navigationController.navigationBar.translucent = NO;
     }else{
-        self.navigationController.navigationBar.tintColor = [UIColor greenColor];
+        self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     }
     
 
