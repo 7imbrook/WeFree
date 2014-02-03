@@ -20,27 +20,15 @@
     self = [super initWithSize:size];
     if (self) {
 
-        self.backgroundColor = [UIColor seafoamColor];
+        self.backgroundColor = [UIColor charcoalColor];
         
         if (image) {
-            CGPoint center = CGPointMake(self.frame.size.width / 2.0, self.frame.size.height / 2.0);
             head = [self floatingHeadWithImage:image name:@"" touchDelegate:nil pulsing:YES];
-            head.position = CGPointMake(center.x, -100);
+            head.position = CGPointMake(50, 50);
             [self addChild:head];
         }
     }
     return self;
-}
-
-- (void)animateMainHeadOffScreen
-{
-
-}
-
-- (void)animateMainHeadToScreen
-{
-    CGPoint center = CGPointMake(self.frame.size.width / 2.0, self.frame.size.height / 2.0);
-    [head runAction:[SKAction moveTo:CGPointMake(center.x, 100) duration:0.5]];
 }
 
 - (SKSpriteNode *)floatingHeadWithImage:(UIImage *)image name:(NSString *)nodename touchDelegate:(id<OTSpriteTouchDelegate>)delegate pulsing:(BOOL)pulse
@@ -48,16 +36,17 @@
     // Create Head
     UIImage *img = [UIImage roundedImageWithImage:image];
     SKTexture *texture = [SKTexture textureWithImage:img];
-    SpriteHead *headSet = [SpriteHead spriteNodeWithTexture:texture size:CGSizeMake(100, 100)];
+    CGSize size = pulse ? CGSizeMake(70, 70) : CGSizeMake(120, 120);
+    SpriteHead *headSet = [SpriteHead spriteNodeWithTexture:texture size:size];
     headSet.delegate = delegate;
     headSet.userInteractionEnabled = YES;
     
     // Add Text
     SKLabelNode *name = [SKLabelNode labelNodeWithFontNamed:@"Avenir-Light"];
     name.text = nodename;
-    name.fontSize = 14.0;
-    name.fontColor = [UIColor infoBlueColor];
-    name.position = CGPointMake(0, -65);
+    name.fontSize = 16.0;
+    name.fontColor = [UIColor whiteColor];
+    name.position = CGPointMake(0, -80);
     [headSet addChild:name];
 
     if (pulse) {
