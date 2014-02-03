@@ -30,17 +30,16 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
-        self.backgroundColor = [UIColor clearColor];
+        self.backgroundColor = [UIColor grassColor];
         _timeCountdown.backgroundColor = [UIColor clearColor];
     }
-    
-    
     
     return self;
 }
 
 - (void)didMoveToSuperview
 {
+    self.backgroundColor = [UIColor grassColor];
     NSTimer *timer = [NSTimer timerWithTimeInterval:1.0 target:self selector:@selector(updateTime) userInfo:nil repeats:YES];
     [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
     [self updateTime];
@@ -60,10 +59,13 @@
 {
     // Hide timer if event is in the past
     if ([_referenceDate timeIntervalSinceDate:[NSDate date]] <= 0) {
-        [self setAlpha:0];
+        [_timeCountdown setAlpha:0];
+        [_eventTitle setAlpha:0];
+        //[self setAlpha:0];
     } else {
-        [UIView animateWithDuration:.35 animations:^(void){
-            [self setAlpha:1];
+        [UIView animateWithDuration:.25 animations:^(void){
+            [_timeCountdown setAlpha:1];
+            [_eventTitle setAlpha:1];
         }];
     }
     NSTimeInterval interval = [_referenceDate timeIntervalSinceNow];

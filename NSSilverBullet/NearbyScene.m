@@ -49,7 +49,7 @@
     name.position = CGPointMake(0, -80);
     [headSet addChild:name];
 
-    
+    /*
     if (pulse) {
         // Create Pulse
 //        NSString *path = [[NSBundle mainBundle] pathForResource:@"Pulse" ofType:@"sks"];
@@ -57,6 +57,7 @@
 //        pulse.particlePosition = CGPointMake(0, 0);
 //        [headSet addChild:pulse];
     }
+    */
     
     return headSet;
 }
