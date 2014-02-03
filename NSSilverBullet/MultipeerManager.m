@@ -68,6 +68,9 @@ NSString* StringFromState(MCSessionState state) {
 
 - (void)start
 {
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:OTUserDefaultsDeviceSearchDisabledKey]) {
+        return;
+    }
     _session = [[MCSession alloc] initWithPeer:_peerid];
     _session.delegate = self;
     [self startAdvertising];
