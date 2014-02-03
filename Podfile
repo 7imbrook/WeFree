@@ -1,7 +1,11 @@
 # Uncomment this line to define a global platform for your project
-# platform :ios, "6.0"
+platform :ios, 7.0
 
 target "NSSilverBullet" do
+
+pod 'NSDate+RelativeTime', '~> 1.0'
+pod 'Colours', '~> 3.1'
+pod 'RZSquaresLoading'
 
 end
 
