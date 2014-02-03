@@ -57,6 +57,15 @@
     }
 }
 
+- (void)requestFreetimeBlocksCompletion:(void(^)(NSArray *events))completion
+{
+
+    
+
+
+
+}
+
 /**
  * Fetches calendar event data from the event store using an NSPredicate. Formats
  * the calendar data into minutes and hours.

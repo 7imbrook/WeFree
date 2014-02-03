@@ -8,8 +8,15 @@
 
 #import "CompareViewController.h"
 #import "FreeTimeViewCell.h"
+#import "ScheduleViewController.h"
+#import <Colours/UIColor+Colours.h>
+#import <RZSquaresLoading/RZSquaresLoading.h>
 
 @interface CompareViewController ()
+
+@property (strong) ScheduleViewController *scheduleViewController;
+
+@property (strong) NSArray *events;
 
 @end
 
@@ -28,24 +35,43 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.view.backgroundColor = [UIColor whiteColor];
+
+    RZSquaresLoading *loading = [[RZSquaresLoading alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
+    loading.center = CGPointMake([UIScreen mainScreen].bounds.size.width / 2.0, [UIScreen mainScreen].bounds.size.height / 2.0);
+    loading.color = [UIColor chartreuseColor];
+    [self.view addSubview:loading];
+
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
+
+    self.view.backgroundColor = [UIColor whiteColor];
     [self.collectionView registerNib:[UINib nibWithNibName:@"FreeTimeView" bundle:nil] forCellWithReuseIdentifier:@"FreeBlock"];
+
+    _scheduleViewController = [ScheduleViewController new];
+    [_scheduleViewController requestEventStoreAccessWithType:EKEntityTypeEvent completion:^(NSArray *events) {
+        _events = [events copy];
+        [loading removeFromSuperview];
+        [self.collectionView reloadData];
+    }];
 }
 
 #pragma mark DataSource
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    
+    EKEvent *event = _events[(int)floorf(indexPath.row / 2)];
+
     FreeTimeViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"FreeBlock" forIndexPath:indexPath];
-    cell.testLabel.text = [NSString stringWithFormat:@"%d", indexPath.row];
+    cell.backgroundColor = [UIColor chartreuseColor];
+    cell.title.text = event.title;
+    cell.startDate.text = event.startDate.description;
     return cell;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 10.0;
+    return _events.count * 2;
 }
 
 #pragma mark Delegate

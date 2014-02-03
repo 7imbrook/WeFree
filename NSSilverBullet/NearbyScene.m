@@ -24,7 +24,7 @@
         
         if (image) {
             head = [self floatingHeadWithImage:image name:@"" touchDelegate:nil pulsing:YES];
-            head.position = CGPointMake(50, 50);
+            head.position = CGPointMake(80, 125);
             [self addChild:head];
         }
     }
@@ -36,7 +36,7 @@
     // Create Head
     UIImage *img = [UIImage roundedImageWithImage:image];
     SKTexture *texture = [SKTexture textureWithImage:img];
-    CGSize size = pulse ? CGSizeMake(70, 70) : CGSizeMake(120, 120);
+    CGSize size = CGSizeMake(100, 100);
     SpriteHead *headSet = [SpriteHead spriteNodeWithTexture:texture size:size];
     headSet.delegate = delegate;
     headSet.userInteractionEnabled = YES;
@@ -51,10 +51,10 @@
 
     if (pulse) {
         // Create Pulse
-        NSString *path = [[NSBundle mainBundle] pathForResource:@"Pulse" ofType:@"sks"];
-        SKEmitterNode *pulse = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
-        pulse.particlePosition = CGPointMake(0, 0);
-        [headSet addChild:pulse];
+//        NSString *path = [[NSBundle mainBundle] pathForResource:@"Pulse" ofType:@"sks"];
+//        SKEmitterNode *pulse = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
+//        pulse.particlePosition = CGPointMake(0, 0);
+//        [headSet addChild:pulse];
     }
     return headSet;
 }

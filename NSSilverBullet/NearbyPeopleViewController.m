@@ -60,13 +60,14 @@
     _promted = NO;
 }
 
-- (void)viewDidAppear:(BOOL)animated
+- (void)viewWillAppear:(BOOL)animated
 {
     [self presentNearbyViewCompletion:nil];
 }
 
-- (void)viewDidDisappear:(BOOL)animated
+- (void)viewWillDisappear:(BOOL)animated
 {
+    [_scene removeFromParent];
     _scene = nil;
 }
 
