@@ -17,6 +17,10 @@
 		4C0F3CA6189F0BE1006CB38F /* UIImage+RoundedImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C0F3CA5189F0BE1006CB38F /* UIImage+RoundedImage.m */; };
 		4C840A48189AE96D00272609 /* TimerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C840A47189AE96D00272609 /* TimerView.m */; };
 		4C840A4A189AE98D00272609 /* TimerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C840A49189AE98D00272609 /* TimerView.xib */; };
+		4CA16AFA189F32DD00F415E9 /* FreeTimeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CA16AF9189F32DD00F415E9 /* FreeTimeView.xib */; };
+		4CA16AFD189F32EC00F415E9 /* FreeTimeViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CA16AFC189F32EC00F415E9 /* FreeTimeViewCell.m */; };
+		4CA16AFF189F32F800F415E9 /* Pulse.sks in Resources */ = {isa = PBXBuildFile; fileRef = 4CA16AFE189F32F800F415E9 /* Pulse.sks */; };
+		4CA16B02189F330700F415E9 /* CompareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CA16B01189F330700F415E9 /* CompareViewController.m */; };
 		4CB41359189AB5D600D330E8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CB41358189AB5D600D330E8 /* Foundation.framework */; };
 		4CB4135B189AB5D600D330E8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CB4135A189AB5D600D330E8 /* CoreGraphics.framework */; };
 		4CB4135D189AB5D600D330E8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CB4135C189AB5D600D330E8 /* UIKit.framework */; };
@@ -66,6 +70,12 @@
 		4C840A46189AE96D00272609 /* TimerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimerView.h; sourceTree = "<group>"; };
 		4C840A47189AE96D00272609 /* TimerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimerView.m; sourceTree = "<group>"; };
 		4C840A49189AE98D00272609 /* TimerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimerView.xib; sourceTree = "<group>"; };
+		4CA16AF9189F32DD00F415E9 /* FreeTimeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FreeTimeView.xib; sourceTree = "<group>"; };
+		4CA16AFB189F32EC00F415E9 /* FreeTimeViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FreeTimeViewCell.h; sourceTree = "<group>"; };
+		4CA16AFC189F32EC00F415E9 /* FreeTimeViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FreeTimeViewCell.m; sourceTree = "<group>"; };
+		4CA16AFE189F32F800F415E9 /* Pulse.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Pulse.sks; sourceTree = "<group>"; };
+		4CA16B00189F330700F415E9 /* CompareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompareViewController.h; sourceTree = "<group>"; };
+		4CA16B01189F330700F415E9 /* CompareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompareViewController.m; sourceTree = "<group>"; };
 		4CB41355189AB5D600D330E8 /* NSSilverBullet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NSSilverBullet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CB41358189AB5D600D330E8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4CB4135A189AB5D600D330E8 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -130,6 +140,7 @@
 		4C0F3C97189F0B54006CB38F /* Sprite Kit */ = {
 			isa = PBXGroup;
 			children = (
+				4CA16AFE189F32F800F415E9 /* Pulse.sks */,
 				4C0F3C98189F0B62006CB38F /* NearbyScene.h */,
 				4C0F3C99189F0B62006CB38F /* NearbyScene.m */,
 				4C0F3C9A189F0B62006CB38F /* SpriteHead.h */,
@@ -221,6 +232,8 @@
 		4CB41387189AB5F000D330E8 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				4CA16B00189F330700F415E9 /* CompareViewController.h */,
+				4CA16B01189F330700F415E9 /* CompareViewController.m */,
 				4C0F3CA1189F0B71006CB38F /* NearbyPeopleViewController.h */,
 				4C0F3CA2189F0B71006CB38F /* NearbyPeopleViewController.m */,
 				4CC2A359189AE29000675ACF /* HomeViewController.h */,
@@ -245,6 +258,8 @@
 		4CB41389189AB5FA00D330E8 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				4CA16AFB189F32EC00F415E9 /* FreeTimeViewCell.h */,
+				4CA16AFC189F32EC00F415E9 /* FreeTimeViewCell.m */,
 				2C0B9177189F287600979616 /* WFSettingsButton.h */,
 				2C0B9178189F287600979616 /* WFSettingsButton.m */,
 				105C13EE189EFFF8008A3806 /* MWCalendarButton.h */,
@@ -258,6 +273,7 @@
 		4CB4138A189AB60000D330E8 /* Templates */ = {
 			isa = PBXGroup;
 			children = (
+				4CA16AF9189F32DD00F415E9 /* FreeTimeView.xib */,
 				4C840A49189AE98D00272609 /* TimerView.xib */,
 			);
 			name = Templates;
@@ -352,7 +368,9 @@
 				4C840A4A189AE98D00272609 /* TimerView.xib in Resources */,
 				4CC2A363189AE2FD00675ACF /* Main.storyboard in Resources */,
 				4CB41363189AB5D600D330E8 /* InfoPlist.strings in Resources */,
+				4CA16AFF189F32F800F415E9 /* Pulse.sks in Resources */,
 				4CB4136B189AB5D600D330E8 /* Images.xcassets in Resources */,
+				4CA16AFA189F32DD00F415E9 /* FreeTimeView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -406,11 +424,13 @@
 			files = (
 				4C840A48189AE96D00272609 /* TimerView.m in Sources */,
 				4CB41369189AB5D600D330E8 /* AppDelegate.m in Sources */,
+				4CA16AFD189F32EC00F415E9 /* FreeTimeViewCell.m in Sources */,
 				4CB41365189AB5D600D330E8 /* main.m in Sources */,
 				2C0B9174189F1BCE00979616 /* WFEvent.m in Sources */,
 				4CC2A361189AE2E200675ACF /* SettingsViewController.m in Sources */,
 				4C0F3C9D189F0B62006CB38F /* SpriteHead.m in Sources */,
 				4C0F3CA6189F0BE1006CB38F /* UIImage+RoundedImage.m in Sources */,
+				4CA16B02189F330700F415E9 /* CompareViewController.m in Sources */,
 				2C0B9179189F287600979616 /* WFSettingsButton.m in Sources */,
 				4C0F3CA3189F0B71006CB38F /* NearbyPeopleViewController.m in Sources */,
 				4CC2A35B189AE29000675ACF /* HomeViewController.m in Sources */,
