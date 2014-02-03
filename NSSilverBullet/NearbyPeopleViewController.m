@@ -101,12 +101,15 @@
 
 - (void)dismissNearbyViewCompletion:(void(^)())completion
 {
-    completion = completion ?: ^{ };
     _presented = NO;
     [MultipeerManager.sharedManager start];
     [UIView animateWithDuration:0.4 delay:0.0 options:UIViewAnimationOptionCurveEaseIn animations:^{
         self.view.frame = CGRectOffset(self.view.frame, 0.0, 320);
-    } completion:nil];
+    } completion:^(BOOL finished) {
+        if (completion) {
+            completion();
+        }
+    }];
 }
 
 - (void)addHeadWithImage:(UIImage *)image named:(NSString *)name
