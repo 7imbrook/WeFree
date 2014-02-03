@@ -29,7 +29,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
-        self.backgroundColor = [UIColor whiteColor];
+        self.backgroundColor = [UIColor clearColor];
         _timeCountdown.backgroundColor = [UIColor clearColor];
     }
     
@@ -49,14 +49,10 @@
 {
     interval = fabs(interval);
     interval = floor(interval);
-    //NSLog(@"Seconds: %f", interval);
-//    NSLog(@"Seconds: %ld", lround(interval) % 60);
-//    NSLog(@"Minutes: %ld", lround(floor(interval / 60.)) % 60);
-//    NSLog(@"Hours: %ld", lround(interval / 3600.) % 100);
     return [NSString stringWithFormat:@"%02li:%02li:%02li",
             lround(floor(interval / 3600.)) % 100,     // hours
             lround(floor(interval / 60.)) % 60, // minutes
-            lround(floor(interval)) % 60];      // seconds
+            lround(interval) % 60];      // seconds
 }
 
 - (void)updateTime
@@ -70,6 +66,7 @@
         }];
     }
     NSTimeInterval interval = [_referenceDate timeIntervalSinceNow];
+    
     if (interval < 0) {
         self.backgroundColor = [UIColor redColor];
     } else if (interval > 0) {
