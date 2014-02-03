@@ -33,6 +33,7 @@
 		4CB41374189AB5D600D330E8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CB4135C189AB5D600D330E8 /* UIKit.framework */; };
 		4CB4137C189AB5D600D330E8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4CB4137A189AB5D600D330E8 /* InfoPlist.strings */; };
 		4CB4137E189AB5D600D330E8 /* NSSilverBulletTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB4137D189AB5D600D330E8 /* NSSilverBulletTests.m */; };
+		4CBAA4E5189F493E0057409A /* ring.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CBAA4E4189F493E0057409A /* ring.png */; };
 		4CC2A35B189AE29000675ACF /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC2A35A189AE29000675ACF /* HomeViewController.m */; };
 		4CC2A35E189AE2AA00675ACF /* ScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC2A35D189AE2AA00675ACF /* ScheduleViewController.m */; };
 		4CC2A361189AE2E200675ACF /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC2A360189AE2E200675ACF /* SettingsViewController.m */; };
@@ -92,6 +93,7 @@
 		4CB41379189AB5D600D330E8 /* NSSilverBulletTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NSSilverBulletTests-Info.plist"; sourceTree = "<group>"; };
 		4CB4137B189AB5D600D330E8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4CB4137D189AB5D600D330E8 /* NSSilverBulletTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSSilverBulletTests.m; sourceTree = "<group>"; };
+		4CBAA4E4189F493E0057409A /* ring.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ring.png; sourceTree = "<group>"; };
 		4CC2A359189AE29000675ACF /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		4CC2A35A189AE29000675ACF /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		4CC2A35C189AE2AA00675ACF /* ScheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleViewController.h; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				4CA16AFE189F32F800F415E9 /* Pulse.sks */,
+				4CBAA4E4189F493E0057409A /* ring.png */,
 				4C0F3C98189F0B62006CB38F /* NearbyScene.h */,
 				4C0F3C99189F0B62006CB38F /* NearbyScene.m */,
 				4C0F3C9A189F0B62006CB38F /* SpriteHead.h */,
@@ -371,6 +374,7 @@
 				4CA16AFF189F32F800F415E9 /* Pulse.sks in Resources */,
 				4CB4136B189AB5D600D330E8 /* Images.xcassets in Resources */,
 				4CA16AFA189F32DD00F415E9 /* FreeTimeView.xib in Resources */,
+				4CBAA4E5189F493E0057409A /* ring.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
