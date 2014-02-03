@@ -20,7 +20,7 @@
     self = [super initWithSize:size];
     if (self) {
 
-        self.backgroundColor = [UIColor icebergColor];
+        self.backgroundColor = [UIColor seafoamColor];
         
         if (image) {
             CGPoint center = CGPointMake(self.frame.size.width / 2.0, self.frame.size.height / 2.0);

@@ -7,6 +7,7 @@
 //
 
 #import "CompareViewController.h"
+#import "FreeTimeViewCell.h"
 
 @interface CompareViewController ()
 
@@ -27,6 +28,31 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    self.view.backgroundColor = [UIColor whiteColor];
+    self.collectionView.dataSource = self;
+    self.collectionView.delegate = self;
+    [self.collectionView registerNib:[UINib nibWithNibName:@"FreeTimeView" bundle:nil] forCellWithReuseIdentifier:@"FreeBlock"];
+}
+
+#pragma mark DataSource
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    FreeTimeViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"FreeBlock" forIndexPath:indexPath];
+    cell.testLabel.text = [NSString stringWithFormat:@"%d", indexPath.row];
+    return cell;
+}
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    return 10.0;
+}
+
+#pragma mark Delegate
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    return CGSizeMake([UIScreen mainScreen].bounds.size.width, 100);
 }
 
 - (void)didReceiveMemoryWarning

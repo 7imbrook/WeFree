@@ -8,6 +8,7 @@
 
 #import "MultipeerManager.h"
 #import "SettingsViewController.h"
+#import "CompareViewController.h"
 
 #define NSLog(...)
 
@@ -148,6 +149,9 @@ NSString* StringFromState(MCSessionState state) {
         [_delegate manager:self didDiscoverUser:peerID withEmail:email];
     } else if ([header isEqualToData:[NSData dataWithBytes:"VIBRATE000" length:10]]) {
         [_delegate manager:self peerDidInstantiateScheduler:peerID];
+    } else if ([header isEqualToData:[NSData dataWithBytes:"ACTIVATE00" length:10]]) {
+        CompareViewController *cvc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"CompareViewController"];
+        [_delegate manager:self peerStartScheduler:peerID];
     }
 }
 

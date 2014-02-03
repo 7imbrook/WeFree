@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CompareViewController : UIViewController
+@interface CompareViewController : UICollectionViewController <UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 
 @end

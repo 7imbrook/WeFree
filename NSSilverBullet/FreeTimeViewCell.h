@@ -10,4 +10,6 @@
 
 @interface FreeTimeViewCell : UICollectionViewCell
 
+@property (weak, nonatomic) IBOutlet UILabel *testLabel;
+
 @end

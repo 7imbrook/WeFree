@@ -17,6 +17,7 @@ extern NSString *OTServiceName;
 - (void)manager:(id)manager didLoseUser:(MCPeerID *)user;
 
 - (void)manager:(id)manager peerDidInstantiateScheduler:(MCPeerID *)peer;
+- (void)manager:(id)manager peerStartScheduler:(MCPeerID *)peer;
 
 @end
 

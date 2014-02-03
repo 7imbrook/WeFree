@@ -7,11 +7,13 @@
 //
 
 @import AudioToolbox;
+@import ObjectiveC;
 
 #import "NearbyPeopleViewController.h"
 #import "UIImage+RoundedImage.h"
 #import "NearbyScene.h"
 #import "SettingsViewController.h"
+#import "CompareViewController.h"
 #import <UIColor+Colours.h>
 #import <AddressBook/AddressBook.h>
 #import <CommonCrypto/CommonDigest.h>
@@ -188,14 +190,25 @@
     AudioServicesPlayAlertSound(kSystemSoundID_Vibrate);
     dispatch_sync(dispatch_get_main_queue(), ^{
         UIAlertView *ask = [[UIAlertView alloc] initWithTitle:peer.displayName message:[NSString stringWithFormat:@"%@ would like to find when you're free.", peer.displayName] delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Ok", nil];
+        objc_setAssociatedObject(ask, "peer", peer, OBJC_ASSOCIATION_ASSIGN);
         [ask show];
     });
+}
+
+- (void)manager:(id)manager peerStartScheduler:(MCPeerID *)peer
+{
+    CompareViewController *cvc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"CompareViewController"];
+//    [self.parentViewController.navigationController pushViewController:cvc animated:YES];
+    [self.parentViewController presentViewController:cvc animated:YES completion:nil];
 }
 
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
 {
     if (buttonIndex == 1) {
-        NSLog(@"Connect");
+        CompareViewController *cvc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"CompareViewController"];
+        [self.parentViewController.navigationController pushViewController:cvc animated:YES];
+        MCPeerID *peer = objc_getAssociatedObject(alertView, "peer");
+        [[MultipeerManager.sharedManager session] sendData:[NSData dataWithBytes:"ACTIVATE00" length:10] toPeers:@[peer] withMode:MCSessionSendDataReliable error:nil];
     }
     _promted = NO;
 }
