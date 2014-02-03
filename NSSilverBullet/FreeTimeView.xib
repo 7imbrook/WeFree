@@ -14,11 +14,11 @@
                     <rect key="frame" x="139" y="39" width="42" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
-            <color key="backgroundColor" red="0.19668572453074873" green="1" blue="0.38680054564601407" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" red="0.18620003239999999" green="0.22695132539999999" blue="0.38905400820000002" alpha="1" colorSpace="calibratedRGB"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="testLabel" destination="Mpg-4L-hcK" id="CNY-9I-83o"/>

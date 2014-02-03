@@ -101,6 +101,7 @@
 
 - (void)dismissNearbyViewCompletion:(void(^)())completion
 {
+    completion = completion ?: ^{ };
     _presented = NO;
     [MultipeerManager.sharedManager start];
     [UIView animateWithDuration:0.4 delay:0.0 options:UIViewAnimationOptionCurveEaseIn animations:^{
@@ -121,7 +122,6 @@
 
 - (void)sprite:(SKSpriteNode *)node touched:(BOOL)touched
 {
-    NSLog(@"%@ touched", node.name);
     NSArray *peers = [MultipeerManager.sharedManager session].connectedPeers;
     NSArray *p = [peers filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(MCPeerID *peer, NSDictionary *bindings) {
         return (peer.displayName == node.name);
@@ -188,25 +188,27 @@
     }
     _promted = YES;
     AudioServicesPlayAlertSound(kSystemSoundID_Vibrate);
-    dispatch_sync(dispatch_get_main_queue(), ^{
-        UIAlertView *ask = [[UIAlertView alloc] initWithTitle:peer.displayName message:[NSString stringWithFormat:@"%@ would like to find when you're free.", peer.displayName] delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Ok", nil];
-        objc_setAssociatedObject(ask, "peer", peer, OBJC_ASSOCIATION_ASSIGN);
-        [ask show];
-    });
+    UIAlertView *ask = [[UIAlertView alloc] initWithTitle:peer.displayName message:[NSString stringWithFormat:@"%@ would like to know when you're free.", peer.displayName] delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Ok", nil];
+    objc_setAssociatedObject(ask, "peer", peer, OBJC_ASSOCIATION_ASSIGN);
+    [ask show];
 }
 
 - (void)manager:(id)manager peerStartScheduler:(MCPeerID *)peer
 {
+    [MultipeerManager.sharedManager stopConnecting];
     CompareViewController *cvc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"CompareViewController"];
-//    [self.parentViewController.navigationController pushViewController:cvc animated:YES];
-    [self.parentViewController presentViewController:cvc animated:YES completion:nil];
+    [self.parentViewController.navigationController pushViewController:cvc animated:YES];
 }
 
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
 {
     if (buttonIndex == 1) {
+        [MultipeerManager.sharedManager stopConnecting];
         CompareViewController *cvc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"CompareViewController"];
+        [self dismissNearbyViewCompletion:nil];
         [self.parentViewController.navigationController pushViewController:cvc animated:YES];
+
+        // Tell the other guy to do it.
         MCPeerID *peer = objc_getAssociatedObject(alertView, "peer");
         [[MultipeerManager.sharedManager session] sendData:[NSData dataWithBytes:"ACTIVATE00" length:10] toPeers:@[peer] withMode:MCSessionSendDataReliable error:nil];
     }

@@ -42,6 +42,9 @@ NSString* StringFromState(MCSessionState state) {
 @end
 
 @implementation MultipeerManager
+{
+    dispatch_queue_t queue;
+}
 
 + (instancetype)sharedManager
 {
@@ -63,6 +66,8 @@ NSString* StringFromState(MCSessionState state) {
 
         _browser = [[MCNearbyServiceBrowser alloc] initWithPeer:_peerid serviceType:OTServiceName];
         _browser.delegate = self;
+
+        queue = dispatch_queue_create("multipeer.timbrook.com", DISPATCH_QUEUE_CONCURRENT);
     }
     return self;
 }
@@ -72,19 +77,30 @@ NSString* StringFromState(MCSessionState state) {
     if ([[NSUserDefaults standardUserDefaults] boolForKey:OTUserDefaultsDeviceSearchDisabledKey]) {
         return;
     }
-    _session = [[MCSession alloc] initWithPeer:_peerid];
-    _session.delegate = self;
-    [self startAdvertising];
-    [self startListening];
+    dispatch_async(queue, ^{
+        _session = [[MCSession alloc] initWithPeer:_peerid];
+        _session.delegate = self;
+        [self startAdvertising];
+        [self startListening];
+    });
 }
 
 - (void)stop
 {
     NSLog(@"Stopping...");
-    [_advertiser stopAdvertisingPeer];
-    [_browser stopBrowsingForPeers];
-    [_session disconnect];
-    NSLog(@"Stopped");
+    dispatch_async(queue, ^{
+        [_advertiser stopAdvertisingPeer];
+        [_browser stopBrowsingForPeers];
+        [_session disconnect];
+    });
+}
+
+- (void)stopConnecting
+{
+    dispatch_async(queue, ^{
+        [_advertiser stopAdvertisingPeer];
+        [_browser stopBrowsingForPeers];
+    });
 }
 
 - (void)startAdvertising
@@ -143,16 +159,17 @@ NSString* StringFromState(MCSessionState state) {
     NSLog(@"%@ got %@ from %@", _peerid, data, peerID);
     NSData *header = [data subdataWithRange:NSMakeRange(0, 10)];
     NSData *body = [data subdataWithRange:NSMakeRange(10, data.length - 10)];
-    if ([header isEqualToData:[NSData dataWithBytes:"EMAIL00000" length:10]]) {
-        NSString *email = [NSString stringWithUTF8String:body.bytes];
-        NSLog(@"Email: %@", email);
-        [_delegate manager:self didDiscoverUser:peerID withEmail:email];
-    } else if ([header isEqualToData:[NSData dataWithBytes:"VIBRATE000" length:10]]) {
-        [_delegate manager:self peerDidInstantiateScheduler:peerID];
-    } else if ([header isEqualToData:[NSData dataWithBytes:"ACTIVATE00" length:10]]) {
-        CompareViewController *cvc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"CompareViewController"];
-        [_delegate manager:self peerStartScheduler:peerID];
-    }
+    dispatch_sync(dispatch_get_main_queue(), ^{
+        if ([header isEqualToData:[NSData dataWithBytes:"EMAIL00000" length:10]]) {
+            NSString *email = [NSString stringWithUTF8String:body.bytes ?: ""];
+            NSLog(@"Email: %@", email);
+            [_delegate manager:self didDiscoverUser:peerID withEmail:email];
+        } else if ([header isEqualToData:[NSData dataWithBytes:"VIBRATE000" length:10]]) {
+            [_delegate manager:self peerDidInstantiateScheduler:peerID];
+        } else if ([header isEqualToData:[NSData dataWithBytes:"ACTIVATE00" length:10]]) {
+            [_delegate manager:self peerStartScheduler:peerID];
+        }
+    });
 }
 
 - (void)session:(MCSession *)session didStartReceivingResourceWithName:(NSString *)resourceName fromPeer:(MCPeerID *)peerID withProgress:(NSProgress *)progress

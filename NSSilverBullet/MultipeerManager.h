@@ -36,4 +36,6 @@ extern NSString *OTServiceName;
 
 - (void)stop;
 
+- (void)stopConnecting;
+
 @end
