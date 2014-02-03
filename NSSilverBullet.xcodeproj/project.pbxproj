@@ -340,6 +340,9 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = AppChallenge;
 				TargetAttributes = {
+					4CB41354189AB5D600D330E8 = {
+						DevelopmentTeam = 7BETWR87JE;
+					};
 					4CB4136F189AB5D600D330E8 = {
 						TestTargetID = 4CB41354189AB5D600D330E8;
 					};
@@ -561,11 +564,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NSSilverBullet/NSSilverBullet-Prefix.pch";
 				INFOPLIST_FILE = "NSSilverBullet/NSSilverBullet-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -576,11 +582,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NSSilverBullet/NSSilverBullet-Prefix.pch";
 				INFOPLIST_FILE = "NSSilverBullet/NSSilverBullet-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
