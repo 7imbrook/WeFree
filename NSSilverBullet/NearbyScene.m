@@ -48,6 +48,15 @@
     name.fontColor = [UIColor whiteColor];
     name.position = CGPointMake(0, -80);
     [headSet addChild:name];
+    
+    // Create Pulse
+            NSString *path = [[NSBundle mainBundle] pathForResource:@"Bokeh" ofType:@"sks"];
+           SKEmitterNode *bokeh = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
+           bokeh.particlePosition = CGPointMake(0, 0);
+            [headSet addChild:bokeh];
+    
+    [bokeh setParticleLifetime:3];
+    [bokeh setParticleSpeed:.1];
 
     /*
     if (pulse) {

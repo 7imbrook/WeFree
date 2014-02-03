@@ -10,6 +10,8 @@
 		105C13F0189EFFF8008A3806 /* MWCalendarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 105C13EF189EFFF8008A3806 /* MWCalendarButton.m */; };
 		2C0B9174189F1BCE00979616 /* WFEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C0B9173189F1BCE00979616 /* WFEvent.m */; };
 		2C0B9179189F287600979616 /* WFSettingsButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C0B9178189F287600979616 /* WFSettingsButton.m */; };
+		2CCAF5BB189F526D004E1AE2 /* Bokeh.sks in Resources */ = {isa = PBXBuildFile; fileRef = 2CCAF5B9189F526D004E1AE2 /* Bokeh.sks */; };
+		2CCAF5BC189F526D004E1AE2 /* bokeh.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CCAF5BA189F526D004E1AE2 /* bokeh.png */; };
 		4C0F3C9C189F0B62006CB38F /* NearbyScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C0F3C99189F0B62006CB38F /* NearbyScene.m */; };
 		4C0F3C9D189F0B62006CB38F /* SpriteHead.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C0F3C9B189F0B62006CB38F /* SpriteHead.m */; };
 		4C0F3CA0189F0B69006CB38F /* MultipeerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C0F3C9F189F0B69006CB38F /* MultipeerManager.m */; };
@@ -58,6 +60,8 @@
 		2C0B9173189F1BCE00979616 /* WFEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFEvent.m; sourceTree = "<group>"; };
 		2C0B9177189F287600979616 /* WFSettingsButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFSettingsButton.h; sourceTree = "<group>"; };
 		2C0B9178189F287600979616 /* WFSettingsButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFSettingsButton.m; sourceTree = "<group>"; };
+		2CCAF5B9189F526D004E1AE2 /* Bokeh.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Bokeh.sks; sourceTree = "<group>"; };
+		2CCAF5BA189F526D004E1AE2 /* bokeh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bokeh.png; sourceTree = "<group>"; };
 		4C0F3C98189F0B62006CB38F /* NearbyScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NearbyScene.h; sourceTree = "<group>"; };
 		4C0F3C99189F0B62006CB38F /* NearbyScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearbyScene.m; sourceTree = "<group>"; };
 		4C0F3C9A189F0B62006CB38F /* SpriteHead.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpriteHead.h; sourceTree = "<group>"; };
@@ -148,6 +152,8 @@
 				4C0F3C99189F0B62006CB38F /* NearbyScene.m */,
 				4C0F3C9A189F0B62006CB38F /* SpriteHead.h */,
 				4C0F3C9B189F0B62006CB38F /* SpriteHead.m */,
+				2CCAF5B9189F526D004E1AE2 /* Bokeh.sks */,
+				2CCAF5BA189F526D004E1AE2 /* bokeh.png */,
 			);
 			name = "Sprite Kit";
 			sourceTree = "<group>";
@@ -372,6 +378,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C840A4A189AE98D00272609 /* TimerView.xib in Resources */,
+				2CCAF5BB189F526D004E1AE2 /* Bokeh.sks in Resources */,
+				2CCAF5BC189F526D004E1AE2 /* bokeh.png in Resources */,
 				4CC2A363189AE2FD00675ACF /* Main.storyboard in Resources */,
 				4CB41363189AB5D600D330E8 /* InfoPlist.strings in Resources */,
 				4CA16AFF189F32F800F415E9 /* Pulse.sks in Resources */,
