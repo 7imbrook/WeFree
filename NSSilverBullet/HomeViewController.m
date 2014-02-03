@@ -24,10 +24,19 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    NSArray *ver = [[UIDevice currentDevice].systemVersion componentsSeparatedByString:@"."];
+    if ([[ver objectAtIndex:0] intValue] >= 7) {
+        self.navigationController.navigationBar.barTintColor = [UIColor greenColor];
+        self.navigationController.navigationBar.translucent = NO;
+    }else{
+        self.navigationController.navigationBar.tintColor = [UIColor greenColor];
+    }
+    
 
     // Create and add timer view
     _timerView = [TimerView newTimerView];
-    [_timerView setFrame:CGRectMake(0., 20., [UIScreen mainScreen].bounds.size.width, _timerView.frame.size.height)];
+    [_timerView setFrame:CGRectMake(0., 0., [UIScreen mainScreen].bounds.size.width, _timerView.frame.size.height)];
     
     [self.view addSubview:_timerView];
     

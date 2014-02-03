@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <scenes>
-        <!--Home View Controller - MeWe-->
+        <!--Home View Controller - WeFree-->
         <scene sceneID="NTu-Oj-dxE">
             <objects>
                 <viewController id="ra7-W1-aql" customClass="HomeViewController" sceneMemberID="viewController">
@@ -16,8 +16,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kYr-NO-8QV" customClass="MWCalendarButton">
-                                <rect key="frame" x="108" y="184" width="104" height="152"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kYr-NO-8QV" customClass="MWCalendarButton">
+                                <rect key="frame" x="125" y="235" width="71" height="111"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Add Event">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -26,34 +26,23 @@
                                     <segue destination="68H-2n-b0d" kind="push" id="RCB-1q-Dsp"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qhl-R9-exW">
-                                <rect key="frame" x="129" y="389" width="63" height="30"/>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="WeFree" id="Zr3-at-Xpl">
+                        <barButtonItem key="leftBarButtonItem" id="XQI-GV-fio">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Qhl-R9-exW" customClass="WFSettingsButton">
+                                <rect key="frame" x="16" y="-3" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Settings">
+                                <state key="normal">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <segue destination="PDN-6x-OeG" kind="modal" id="yYs-8U-jCK"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="D7I-KI-bQY" customClass="TimerView">
-                                <rect key="frame" x="0.0" y="44" width="320" height="187"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="centerX" secondItem="Qhl-R9-exW" secondAttribute="centerX" id="879-fR-THI"/>
-                            <constraint firstAttribute="centerY" secondItem="kYr-NO-8QV" secondAttribute="centerY" constant="150" id="WEI-xl-T6s"/>
-                            <constraint firstAttribute="centerX" secondItem="kYr-NO-8QV" secondAttribute="centerX" id="YU8-0h-xeW"/>
-                            <constraint firstAttribute="centerY" secondItem="Qhl-R9-exW" secondAttribute="centerY" constant="100" id="iCJ-Qt-txn"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="MeWe" id="Zr3-at-Xpl"/>
-                    <connections>
-                        <outlet property="timerView" destination="D7I-KI-bQY" id="92k-NN-41o"/>
-                    </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xj4-da-8CI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -159,7 +148,7 @@
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="pdc-cN-oNG">
-                                <rect key="frame" x="0.0" y="50" width="50" height="50"/>
+                                <rect key="frame" x="0.0" y="114" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -169,7 +158,7 @@
                             </collectionViewCell>
                         </cells>
                         <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="hzB-Ef-NdS">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                            <rect key="frame" x="0.0" y="64" width="320" height="50"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </collectionReusableView>
                         <connections>
@@ -186,7 +175,7 @@
         <!--Navigation Controller-->
         <scene sceneID="12b-fV-piF">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="MPt-zh-3EG" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="MPt-zh-3EG" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="IrA-NY-tSc">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>

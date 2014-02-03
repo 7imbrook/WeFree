@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		105C13F0189EFFF8008A3806 /* MWCalendarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 105C13EF189EFFF8008A3806 /* MWCalendarButton.m */; };
 		2C0B9174189F1BCE00979616 /* WFEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C0B9173189F1BCE00979616 /* WFEvent.m */; };
+		2C0B9179189F287600979616 /* WFSettingsButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C0B9178189F287600979616 /* WFSettingsButton.m */; };
 		4C0F3C9C189F0B62006CB38F /* NearbyScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C0F3C99189F0B62006CB38F /* NearbyScene.m */; };
 		4C0F3C9D189F0B62006CB38F /* SpriteHead.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C0F3C9B189F0B62006CB38F /* SpriteHead.m */; };
 		4C0F3CA0189F0B69006CB38F /* MultipeerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C0F3C9F189F0B69006CB38F /* MultipeerManager.m */; };
@@ -50,6 +51,8 @@
 		105C13EF189EFFF8008A3806 /* MWCalendarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWCalendarButton.m; sourceTree = "<group>"; };
 		2C0B9172189F1BCE00979616 /* WFEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFEvent.h; sourceTree = "<group>"; };
 		2C0B9173189F1BCE00979616 /* WFEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFEvent.m; sourceTree = "<group>"; };
+		2C0B9177189F287600979616 /* WFSettingsButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFSettingsButton.h; sourceTree = "<group>"; };
+		2C0B9178189F287600979616 /* WFSettingsButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFSettingsButton.m; sourceTree = "<group>"; };
 		4C0F3C98189F0B62006CB38F /* NearbyScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NearbyScene.h; sourceTree = "<group>"; };
 		4C0F3C99189F0B62006CB38F /* NearbyScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearbyScene.m; sourceTree = "<group>"; };
 		4C0F3C9A189F0B62006CB38F /* SpriteHead.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpriteHead.h; sourceTree = "<group>"; };
@@ -242,6 +245,8 @@
 		4CB41389189AB5FA00D330E8 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				2C0B9177189F287600979616 /* WFSettingsButton.h */,
+				2C0B9178189F287600979616 /* WFSettingsButton.m */,
 				105C13EE189EFFF8008A3806 /* MWCalendarButton.h */,
 				105C13EF189EFFF8008A3806 /* MWCalendarButton.m */,
 				4C840A46189AE96D00272609 /* TimerView.h */,
@@ -406,6 +411,7 @@
 				4CC2A361189AE2E200675ACF /* SettingsViewController.m in Sources */,
 				4C0F3C9D189F0B62006CB38F /* SpriteHead.m in Sources */,
 				4C0F3CA6189F0BE1006CB38F /* UIImage+RoundedImage.m in Sources */,
+				2C0B9179189F287600979616 /* WFSettingsButton.m in Sources */,
 				4C0F3CA3189F0B71006CB38F /* NearbyPeopleViewController.m in Sources */,
 				4CC2A35B189AE29000675ACF /* HomeViewController.m in Sources */,
 				4CC2A35E189AE2AA00675ACF /* ScheduleViewController.m in Sources */,
