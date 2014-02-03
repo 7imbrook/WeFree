@@ -60,6 +60,16 @@
     _promted = NO;
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [self presentNearbyViewCompletion:nil];
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    _scene = nil;
+}
+
 - (void)presentNearbyViewCompletion:(void(^)())completion
 {
     // Present the scene.
