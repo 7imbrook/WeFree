@@ -73,4 +73,9 @@ NSString *OTUserDefaultsDeviceSearchDisabledKey = @"deviceSearchDisabled";
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)dismissSettingsView:(id)sender
+{
+    [self dismissViewControllerAnimated:YES completion:^(void){}];
+}
+
 @end
