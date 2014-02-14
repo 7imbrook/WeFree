@@ -8,7 +8,7 @@
 
 @import EventKit;
 
-#import "EventStoreManager.h"g
+#import "EventStoreManager.h"
 
 @interface EventStoreManager ()
 
