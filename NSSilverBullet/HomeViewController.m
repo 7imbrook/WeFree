@@ -11,7 +11,8 @@
 #import "NearbyPeopleViewController.h"
 #import "TimerView.h"
 #import "ScheduleViewController.h"
-
+#import "WFEvent.h"
+#import "EventStoreManager.h"
 
 @interface HomeViewController ()
 
@@ -41,12 +42,12 @@
     _timerView = [TimerView newTimerView];
     [_timerView setFrame:CGRectMake(0., 60., [UIScreen mainScreen].bounds.size.width, _timerView.frame.size.height)];
     [self.view addSubview:_timerView];
-
-    // Create SVC, request calendar data and set appropriate referenceDate
-    ScheduleViewController *scheduleViewController = [ScheduleViewController new];
-    [scheduleViewController requestEventStoreAccessWithType:EKEntityTypeEvent completion:^(NSArray *events) {
+    
+    // EventStoreManager to fetch events
+    EventStoreManager *eventStoreManager = [EventStoreManager new];
+    [eventStoreManager requestEventStoreAccessWithCompletion:^(NSArray *events) {
         _timerView.referenceDate = [[events firstObject] startDate];
-        _timerView.nextEvent = [[events firstObject]title];
+        _timerView.nextEvent = [[events firstObject] title];
     }];
     
 	// Load Multipeer

@@ -6,15 +6,15 @@
 //  Copyright (c) 2014 AppChallenge. All rights reserved.
 //
 
+@import EventKit;
+
 #import "CompareViewController.h"
 #import "FreeTimeViewCell.h"
-#import "ScheduleViewController.h"
 #import <Colours/UIColor+Colours.h>
 #import <RZSquaresLoading/RZSquaresLoading.h>
+#import "EventStoreManager.h"
 
 @interface CompareViewController ()
-
-@property (strong) ScheduleViewController *scheduleViewController;
 
 @property (strong) NSArray *events;
 
@@ -47,8 +47,8 @@
     self.view.backgroundColor = [UIColor whiteColor];
     [self.collectionView registerNib:[UINib nibWithNibName:@"FreeTimeView" bundle:nil] forCellWithReuseIdentifier:@"FreeBlock"];
 
-    _scheduleViewController = [ScheduleViewController new];
-    [_scheduleViewController requestEventStoreAccessWithType:EKEntityTypeEvent completion:^(NSArray *events) {
+    EventStoreManager *eventStoreManager = [EventStoreManager new];
+    [eventStoreManager requestEventStoreAccessWithCompletion:^(NSArray *events){
         _events = [events copy];
         [loading removeFromSuperview];
         [self.collectionView reloadData];

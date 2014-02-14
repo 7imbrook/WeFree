@@ -10,6 +10,7 @@
 		105C13F0189EFFF8008A3806 /* MWCalendarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 105C13EF189EFFF8008A3806 /* MWCalendarButton.m */; };
 		2C0B9174189F1BCE00979616 /* WFEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C0B9173189F1BCE00979616 /* WFEvent.m */; };
 		2C0B9179189F287600979616 /* WFSettingsButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C0B9178189F287600979616 /* WFSettingsButton.m */; };
+		2C1D09E118ADB7460027580B /* EventStoreManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C1D09E018ADB7460027580B /* EventStoreManager.m */; };
 		2CCAF5BB189F526D004E1AE2 /* Bokeh.sks in Resources */ = {isa = PBXBuildFile; fileRef = 2CCAF5B9189F526D004E1AE2 /* Bokeh.sks */; };
 		2CCAF5BC189F526D004E1AE2 /* bokeh.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CCAF5BA189F526D004E1AE2 /* bokeh.png */; };
 		4C0F3C9C189F0B62006CB38F /* NearbyScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C0F3C99189F0B62006CB38F /* NearbyScene.m */; };
@@ -60,6 +61,8 @@
 		2C0B9173189F1BCE00979616 /* WFEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFEvent.m; sourceTree = "<group>"; };
 		2C0B9177189F287600979616 /* WFSettingsButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFSettingsButton.h; sourceTree = "<group>"; };
 		2C0B9178189F287600979616 /* WFSettingsButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFSettingsButton.m; sourceTree = "<group>"; };
+		2C1D09DF18ADB7460027580B /* EventStoreManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventStoreManager.h; sourceTree = "<group>"; };
+		2C1D09E018ADB7460027580B /* EventStoreManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventStoreManager.m; sourceTree = "<group>"; };
 		2CCAF5B9189F526D004E1AE2 /* Bokeh.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Bokeh.sks; sourceTree = "<group>"; };
 		2CCAF5BA189F526D004E1AE2 /* bokeh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bokeh.png; sourceTree = "<group>"; };
 		4C0F3C98189F0B62006CB38F /* NearbyScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NearbyScene.h; sourceTree = "<group>"; };
@@ -251,6 +254,8 @@
 				4CC2A35D189AE2AA00675ACF /* ScheduleViewController.m */,
 				4CC2A35F189AE2E200675ACF /* SettingsViewController.h */,
 				4CC2A360189AE2E200675ACF /* SettingsViewController.m */,
+				2C1D09DF18ADB7460027580B /* EventStoreManager.h */,
+				2C1D09E018ADB7460027580B /* EventStoreManager.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -441,6 +446,7 @@
 				4CB41369189AB5D600D330E8 /* AppDelegate.m in Sources */,
 				4CA16AFD189F32EC00F415E9 /* FreeTimeViewCell.m in Sources */,
 				4CB41365189AB5D600D330E8 /* main.m in Sources */,
+				2C1D09E118ADB7460027580B /* EventStoreManager.m in Sources */,
 				2C0B9174189F1BCE00979616 /* WFEvent.m in Sources */,
 				4CC2A361189AE2E200675ACF /* SettingsViewController.m in Sources */,
 				4C0F3C9D189F0B62006CB38F /* SpriteHead.m in Sources */,

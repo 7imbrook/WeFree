@@ -6,16 +6,7 @@
 //  Copyright (c) 2014 AppChallenge. All rights reserved.
 //
 
-@import EventKit;
-
 #import "ScheduleViewController.h"
-#import "HomeViewController.h"
-
-@interface ScheduleViewController ()
-
-@property (nonatomic) EKEventStore *eventStore;
-
-@end
 
 @implementation ScheduleViewController
 
@@ -39,71 +30,11 @@
 
 #pragma mark - EventStore methods
 
-- (void)checkEventStoreAccessForType:(EKEntityType)type
-{
-    EKAuthorizationStatus status = [EKEventStore authorizationStatusForEntityType:type];
-    
-    if(status == EKAuthorizationStatusNotDetermined) {
-        NSLog(@"Not Determined...");
-    }
-    else if(status == EKAuthorizationStatusRestricted) {
-        NSLog(@"Restricted access.");
-    }
-    else if(status == EKAuthorizationStatusDenied) {
-        NSLog(@"Status denied.");
-    }
-    else if(status == EKAuthorizationStatusAuthorized) {
-        NSLog(@"Status authorized.");
-    }
-}
-
 - (void)requestFreetimeBlocksCompletion:(void(^)(NSArray *events))completion
 {
 
-    
-
-
-
 }
 
-/**
- * Fetches calendar event data from the event store using an NSPredicate. Formats
- * the calendar data into minutes and hours.
- */
-- (void)requestEventStoreAccessWithType:(EKEntityType)entityType completion:(void (^)(NSMutableArray *eventArray))completion
-{
-    if(!_eventStore) {
-        _eventStore = [EKEventStore new];
-    }
-    
-    [_eventStore requestAccessToEntityType:entityType completion:^(BOOL granted, NSError *error) {
-        NSCalendar *calendar = [NSCalendar currentCalendar];
-        
-        // Create end date components (a week)
-        NSDateComponents *aWeekComponents = [NSDateComponents new];
-        aWeekComponents.day = 7;
-        NSDate *aWeek = [calendar dateByAddingComponents:aWeekComponents toDate:[NSDate date] options:0];
-        
-        // Create the predicate from the event store's instance method
-        NSPredicate *predicate = [_eventStore predicateForEventsWithStartDate:[NSDate date]
-                                                                      endDate:aWeek
-                                                                    calendars:nil];
-        // Fetch all events that match the predicate
-        NSMutableArray *events = [NSMutableArray arrayWithArray:[_eventStore eventsMatchingPredicate:predicate]];
-        NSMutableArray *pastEvents = [NSMutableArray array];
-        
-        // Remove past events, including events happening now
-        for (EKEvent *event in events){
-            if ([event.startDate timeIntervalSinceDate:[NSDate date]] <= 0){
-                [pastEvents addObject:event];
-            }
-        }
-        [events removeObjectsInArray:pastEvents];
-        
-        // Pass the events array to the HVC completion block
-        completion(events);
-    }];
-}
 
 #pragma mark - Helpers
 
