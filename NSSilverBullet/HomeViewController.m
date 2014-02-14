@@ -27,17 +27,6 @@
 {
     [super viewDidLoad];
     
-    /*
-    // Paint navigation bar a color
-    NSArray *ver = [[UIDevice currentDevice].systemVersion componentsSeparatedByString:@"."];
-    if ([[ver objectAtIndex:0] intValue] >= 7) {
-        self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
-        //self.navigationController.navigationBar.translucent = NO;
-    }else{
-        self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-    }
-     */
-    
     // Create and add timer view
     _timerView = [TimerView newTimerView];
     [_timerView setFrame:CGRectMake(0., 60., [UIScreen mainScreen].bounds.size.width, _timerView.frame.size.height)];
@@ -57,7 +46,6 @@
     [MultipeerManager.sharedManager start];
     [self addChildViewController:_nbpvc];
     [self.view addSubview:_nbpvc.view];
-
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -68,11 +56,6 @@
 - (void)viewDidDisappear:(BOOL)animated
 {
     [MultipeerManager.sharedManager stop];
-}
-
-- (IBAction)unwindToHome:(UIStoryboardSegue *)unwindSegue
-{
-
 }
 
 #pragma mark - Helpers
