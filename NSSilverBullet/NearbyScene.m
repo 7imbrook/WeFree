@@ -49,24 +49,13 @@
     name.position = CGPointMake(0, -80);
     [headSet addChild:name];
     
-    // Create Pulse
-            NSString *path = [[NSBundle mainBundle] pathForResource:@"Bokeh" ofType:@"sks"];
-           SKEmitterNode *bokeh = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
-           bokeh.particlePosition = CGPointMake(0, 0);
-            [headSet addChild:bokeh];
-    
-    [bokeh setParticleLifetime:3];
-    [bokeh setParticleSpeed:.1];
-
-    /*
-    if (pulse) {
-        // Create Pulse
-//        NSString *path = [[NSBundle mainBundle] pathForResource:@"Pulse" ofType:@"sks"];
-//        SKEmitterNode *pulse = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
-//        pulse.particlePosition = CGPointMake(0, 0);
-//        [headSet addChild:pulse];
-    }
-    */
+    // Create Bokeh
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"Bokeh" ofType:@"sks"];
+    SKEmitterNode *bokeh = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
+    bokeh.particlePosition = CGPointMake(0, 0);
+    bokeh.particleLifetime = 3;
+    bokeh.particleSpeed = .1;
+    [headSet addChild:bokeh];
     
     return headSet;
 }
