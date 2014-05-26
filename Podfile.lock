@@ -1,16 +1,30 @@
 PODS:
   - Colours (3.3)
+  - MMDrawerController (0.5.5):
+    - MMDrawerController/Core
+    - MMDrawerController/MMDrawerBarButtonItem
+    - MMDrawerController/MMDrawerVisualStates
+    - MMDrawerController/Subclass
+  - MMDrawerController/Core (0.5.5)
+  - MMDrawerController/MMDrawerBarButtonItem (0.5.5):
+    - MMDrawerController/Core
+  - MMDrawerController/MMDrawerVisualStates (0.5.5):
+    - MMDrawerController/Core
+  - MMDrawerController/Subclass (0.5.5):
+    - MMDrawerController/Core
   - NSDate+RelativeTime (1.0.1)
   - RZSquaresLoading (1.0)
 
 DEPENDENCIES:
   - Colours (~> 3.1)
+  - MMDrawerController (~> 0.5)
   - NSDate+RelativeTime (~> 1.0)
   - RZSquaresLoading
 
 SPEC CHECKSUMS:
   Colours: 9a9d99fad208574d5c205513b31323a5c2f15220
+  MMDrawerController: 45c08be28375eac9f0ecaa75f1f0e47eb38c8eb1
   NSDate+RelativeTime: 802d337ebf0b5c0b1a8e63c035acf8942bb11ba3
   RZSquaresLoading: 18758db4c4b607878bf9d37c84c6501f4211ab00
 
-COCOAPODS: 0.29.0
+COCOAPODS: 0.32.1

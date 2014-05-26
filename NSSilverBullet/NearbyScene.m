@@ -50,7 +50,7 @@
     [headSet addChild:name];
     
     // Create Bokeh
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"Bokeh" ofType:@"sks"];
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"Pulse" ofType:@"sks"];
     SKEmitterNode *bokeh = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
     bokeh.particlePosition = CGPointMake(0, 0);
     bokeh.particleLifetime = 3;

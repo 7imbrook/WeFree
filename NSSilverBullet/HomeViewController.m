@@ -8,7 +8,6 @@
 #import <MultipeerConnectivity/MultipeerConnectivity.h>
 #import "HomeViewController.h"
 #import "MultipeerManager.h"
-#import "NearbyPeopleViewController.h"
 #import "TimerView.h"
 #import "ScheduleViewController.h"
 #import "WFEvent.h"
@@ -17,7 +16,6 @@
 @interface HomeViewController ()
 
 @property (nonatomic) TimerView *timerView;
-@property (strong) NearbyPeopleViewController *nbpvc;
 
 @end
 
@@ -38,24 +36,17 @@
         _timerView.referenceDate = [[events firstObject] startDate];
         _timerView.nextEvent = [[events firstObject] title];
     }];
-    
-	// Load Multipeer
-    _nbpvc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"NearbyPeopleViewController"];
-    _nbpvc.view.frame = CGRectMake(0, [UIScreen mainScreen].bounds.size.height - 250, 320, 250);
-    [MultipeerManager.sharedManager setDelegate:_nbpvc];
-    [MultipeerManager.sharedManager start];
-    [self addChildViewController:_nbpvc];
-    [self.view addSubview:_nbpvc.view];
+
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    [MultipeerManager.sharedManager start];
+
 }
 
 - (void)viewDidDisappear:(BOOL)animated
 {
-    [MultipeerManager.sharedManager stop];
+
 }
 
 #pragma mark - Helpers
@@ -67,7 +58,7 @@
 
 - (void)dealloc
 {
-    [MultipeerManager.sharedManager stop];
+    
 }
 
 @end

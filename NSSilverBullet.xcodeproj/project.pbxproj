@@ -16,10 +16,13 @@
 		4C0F3C9C189F0B62006CB38F /* NearbyScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C0F3C99189F0B62006CB38F /* NearbyScene.m */; };
 		4C0F3C9D189F0B62006CB38F /* SpriteHead.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C0F3C9B189F0B62006CB38F /* SpriteHead.m */; };
 		4C0F3CA0189F0B69006CB38F /* MultipeerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C0F3C9F189F0B69006CB38F /* MultipeerManager.m */; };
-		4C0F3CA3189F0B71006CB38F /* NearbyPeopleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C0F3CA2189F0B71006CB38F /* NearbyPeopleViewController.m */; };
 		4C0F3CA6189F0BE1006CB38F /* UIImage+RoundedImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C0F3CA5189F0BE1006CB38F /* UIImage+RoundedImage.m */; };
 		4C840A48189AE96D00272609 /* TimerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C840A47189AE96D00272609 /* TimerView.m */; };
 		4C840A4A189AE98D00272609 /* TimerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C840A49189AE98D00272609 /* TimerView.xib */; };
+		4C9208B91931766A0004C6E4 /* PersonHeadTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C9208B81931766A0004C6E4 /* PersonHeadTableViewCell.m */; };
+		4C9208BC193177670004C6E4 /* NearbyTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C9208BB193177670004C6E4 /* NearbyTableViewController.m */; };
+		4C9208C0193234CA0004C6E4 /* Head.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C9208BF193234CA0004C6E4 /* Head.m */; };
+		4C9208C3193269460004C6E4 /* PeerConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C9208C2193269460004C6E4 /* PeerConnection.m */; };
 		4CA16AFA189F32DD00F415E9 /* FreeTimeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CA16AF9189F32DD00F415E9 /* FreeTimeView.xib */; };
 		4CA16AFD189F32EC00F415E9 /* FreeTimeViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CA16AFC189F32EC00F415E9 /* FreeTimeViewCell.m */; };
 		4CA16AFF189F32F800F415E9 /* Pulse.sks in Resources */ = {isa = PBXBuildFile; fileRef = 4CA16AFE189F32F800F415E9 /* Pulse.sks */; };
@@ -71,13 +74,19 @@
 		4C0F3C9B189F0B62006CB38F /* SpriteHead.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpriteHead.m; sourceTree = "<group>"; };
 		4C0F3C9E189F0B69006CB38F /* MultipeerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultipeerManager.h; sourceTree = "<group>"; };
 		4C0F3C9F189F0B69006CB38F /* MultipeerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultipeerManager.m; sourceTree = "<group>"; };
-		4C0F3CA1189F0B71006CB38F /* NearbyPeopleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NearbyPeopleViewController.h; sourceTree = "<group>"; };
-		4C0F3CA2189F0B71006CB38F /* NearbyPeopleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearbyPeopleViewController.m; sourceTree = "<group>"; };
 		4C0F3CA4189F0BE1006CB38F /* UIImage+RoundedImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+RoundedImage.h"; sourceTree = "<group>"; };
 		4C0F3CA5189F0BE1006CB38F /* UIImage+RoundedImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+RoundedImage.m"; sourceTree = "<group>"; };
 		4C840A46189AE96D00272609 /* TimerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimerView.h; sourceTree = "<group>"; };
 		4C840A47189AE96D00272609 /* TimerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimerView.m; sourceTree = "<group>"; };
 		4C840A49189AE98D00272609 /* TimerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimerView.xib; sourceTree = "<group>"; };
+		4C9208B71931766A0004C6E4 /* PersonHeadTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonHeadTableViewCell.h; sourceTree = "<group>"; };
+		4C9208B81931766A0004C6E4 /* PersonHeadTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonHeadTableViewCell.m; sourceTree = "<group>"; };
+		4C9208BA193177670004C6E4 /* NearbyTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NearbyTableViewController.h; sourceTree = "<group>"; };
+		4C9208BB193177670004C6E4 /* NearbyTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearbyTableViewController.m; sourceTree = "<group>"; };
+		4C9208BE193234CA0004C6E4 /* Head.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Head.h; sourceTree = "<group>"; };
+		4C9208BF193234CA0004C6E4 /* Head.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Head.m; sourceTree = "<group>"; };
+		4C9208C1193269460004C6E4 /* PeerConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PeerConnection.h; sourceTree = "<group>"; };
+		4C9208C2193269460004C6E4 /* PeerConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PeerConnection.m; sourceTree = "<group>"; };
 		4CA16AF9189F32DD00F415E9 /* FreeTimeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FreeTimeView.xib; sourceTree = "<group>"; };
 		4CA16AFB189F32EC00F415E9 /* FreeTimeViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FreeTimeViewCell.h; sourceTree = "<group>"; };
 		4CA16AFC189F32EC00F415E9 /* FreeTimeViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FreeTimeViewCell.m; sourceTree = "<group>"; };
@@ -142,6 +151,8 @@
 			children = (
 				4C0F3C9E189F0B69006CB38F /* MultipeerManager.h */,
 				4C0F3C9F189F0B69006CB38F /* MultipeerManager.m */,
+				4C9208C1193269460004C6E4 /* PeerConnection.h */,
+				4C9208C2193269460004C6E4 /* PeerConnection.m */,
 			);
 			name = Multipeer;
 			sourceTree = "<group>";
@@ -159,6 +170,15 @@
 				2CCAF5BA189F526D004E1AE2 /* bokeh.png */,
 			);
 			name = "Sprite Kit";
+			sourceTree = "<group>";
+		};
+		4C9208BD193234B40004C6E4 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				4C9208B71931766A0004C6E4 /* PersonHeadTableViewCell.h */,
+				4C9208B81931766A0004C6E4 /* PersonHeadTableViewCell.m */,
+			);
+			name = Cells;
 			sourceTree = "<group>";
 		};
 		4CB4134C189AB5D600D330E8 = {
@@ -196,6 +216,7 @@
 		4CB4135E189AB5D600D330E8 /* NSSilverBullet */ = {
 			isa = PBXGroup;
 			children = (
+				4C9208BD193234B40004C6E4 /* Cells */,
 				4C0F3C97189F0B54006CB38F /* Sprite Kit */,
 				4C0F3C96189F0B4E006CB38F /* Multipeer */,
 				4CB4138A189AB60000D330E8 /* Templates */,
@@ -246,8 +267,6 @@
 			children = (
 				4CA16B00189F330700F415E9 /* CompareViewController.h */,
 				4CA16B01189F330700F415E9 /* CompareViewController.m */,
-				4C0F3CA1189F0B71006CB38F /* NearbyPeopleViewController.h */,
-				4C0F3CA2189F0B71006CB38F /* NearbyPeopleViewController.m */,
 				4CC2A359189AE29000675ACF /* HomeViewController.h */,
 				4CC2A35A189AE29000675ACF /* HomeViewController.m */,
 				4CC2A35C189AE2AA00675ACF /* ScheduleViewController.h */,
@@ -256,6 +275,8 @@
 				4CC2A360189AE2E200675ACF /* SettingsViewController.m */,
 				2C1D09DF18ADB7460027580B /* EventStoreManager.h */,
 				2C1D09E018ADB7460027580B /* EventStoreManager.m */,
+				4C9208BA193177670004C6E4 /* NearbyTableViewController.h */,
+				4C9208BB193177670004C6E4 /* NearbyTableViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -280,6 +301,8 @@
 				105C13EF189EFFF8008A3806 /* MWCalendarButton.m */,
 				4C840A46189AE96D00272609 /* TimerView.h */,
 				4C840A47189AE96D00272609 /* TimerView.m */,
+				4C9208BE193234CA0004C6E4 /* Head.h */,
+				4C9208BF193234CA0004C6E4 /* Head.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -352,7 +375,7 @@
 				ORGANIZATIONNAME = AppChallenge;
 				TargetAttributes = {
 					4CB41354189AB5D600D330E8 = {
-						DevelopmentTeam = 7BETWR87JE;
+						DevelopmentTeam = NPPGU8UV99;
 					};
 					4CB4136F189AB5D600D330E8 = {
 						TestTargetID = 4CB41354189AB5D600D330E8;
@@ -444,17 +467,20 @@
 			files = (
 				4C840A48189AE96D00272609 /* TimerView.m in Sources */,
 				4CB41369189AB5D600D330E8 /* AppDelegate.m in Sources */,
+				4C9208BC193177670004C6E4 /* NearbyTableViewController.m in Sources */,
 				4CA16AFD189F32EC00F415E9 /* FreeTimeViewCell.m in Sources */,
 				4CB41365189AB5D600D330E8 /* main.m in Sources */,
 				2C1D09E118ADB7460027580B /* EventStoreManager.m in Sources */,
+				4C9208C3193269460004C6E4 /* PeerConnection.m in Sources */,
 				2C0B9174189F1BCE00979616 /* WFEvent.m in Sources */,
 				4CC2A361189AE2E200675ACF /* SettingsViewController.m in Sources */,
 				4C0F3C9D189F0B62006CB38F /* SpriteHead.m in Sources */,
 				4C0F3CA6189F0BE1006CB38F /* UIImage+RoundedImage.m in Sources */,
 				4CA16B02189F330700F415E9 /* CompareViewController.m in Sources */,
+				4C9208B91931766A0004C6E4 /* PersonHeadTableViewCell.m in Sources */,
 				2C0B9179189F287600979616 /* WFSettingsButton.m in Sources */,
-				4C0F3CA3189F0B71006CB38F /* NearbyPeopleViewController.m in Sources */,
 				4CC2A35B189AE29000675ACF /* HomeViewController.m in Sources */,
+				4C9208C0193234CA0004C6E4 /* Head.m in Sources */,
 				4CC2A35E189AE2AA00675ACF /* ScheduleViewController.m in Sources */,
 				105C13F0189EFFF8008A3806 /* MWCalendarButton.m in Sources */,
 				4C0F3C9C189F0B62006CB38F /* NearbyScene.m in Sources */,

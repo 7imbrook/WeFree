@@ -6,6 +6,7 @@ target "NSSilverBullet" do
 pod 'NSDate+RelativeTime', '~> 1.0'
 pod 'Colours', '~> 3.1'
 pod 'RZSquaresLoading'
+pod 'MMDrawerController', '~> 0.5'
 
 end
 

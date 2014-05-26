@@ -10,8 +10,6 @@
 #import "SettingsViewController.h"
 #import "CompareViewController.h"
 
-#define NSLog(...)
-
 NSString *OTServiceName = @"OT-Nearby";
 
 NSString* StringFromState(MCSessionState state) {
@@ -149,7 +147,6 @@ NSString* StringFromState(MCSessionState state) {
 - (void)browser:(MCNearbyServiceBrowser *)browser lostPeer:(MCPeerID *)peerID
 {
     NSLog(@"Lost peer %@", peerID.displayName);
-    [_delegate manager:self didLoseUser:peerID];
 }
 
 #pragma mark MCSessionDelegate
@@ -163,11 +160,10 @@ NSString* StringFromState(MCSessionState state) {
         if ([header isEqualToData:[NSData dataWithBytes:"EMAIL00000" length:10]]) {
             NSString *email = [NSString stringWithUTF8String:body.bytes ?: ""];
             NSLog(@"Email: %@", email);
-            [_delegate manager:self didDiscoverUser:peerID withEmail:email];
         } else if ([header isEqualToData:[NSData dataWithBytes:"VIBRATE000" length:10]]) {
-            [_delegate manager:self peerDidInstantiateScheduler:peerID];
+
         } else if ([header isEqualToData:[NSData dataWithBytes:"ACTIVATE00" length:10]]) {
-            [_delegate manager:self peerStartScheduler:peerID];
+
         }
     });
 }
@@ -196,13 +192,16 @@ NSString* StringFromState(MCSessionState state) {
         [data appendData:[NSData dataWithBytes:email.UTF8String length:email.length]];
         [_session sendData:data toPeers:@[peerID] withMode:MCSessionSendDataReliable error:nil];
     } else if (state == MCSessionStateNotConnected) {
-        [_delegate manager:self didLoseUser:peerID];
+
     }
 
 }
 
 - (void)session:(MCSession *)session didReceiveCertificate:(NSArray *)certificate fromPeer:(MCPeerID *)peerID certificateHandler:(void (^)(BOOL))certificateHandler
 {
+    NSLog(@"================Cert Start===============");
+    NSLog(@"%@", certificate);
+    NSLog(@"================Cert End=================");
     certificateHandler(YES);
 }
 
