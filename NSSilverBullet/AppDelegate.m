@@ -24,6 +24,7 @@
 
     MultipeerManager *cmanage = [MultipeerManager new];
     cmanage.delegate = nearbyController;
+    [cmanage start];
 
     // Configure the drawers
     MMDrawerController *drawerController = [[MMDrawerController alloc] initWithCenterViewController:rvc
