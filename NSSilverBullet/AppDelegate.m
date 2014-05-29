@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "MultipeerManager.h"
+#import <FBTweakShakeWindow.h>
 #import "NearbyTableViewController.h"
 #import <MMDrawerController/MMDrawerController.h>
 #import <MMDrawerController/MMDrawerVisualState.h>
@@ -39,6 +40,14 @@
     self.window.rootViewController = drawerController;
 
     return YES;
+}
+
+- (UIWindow *)window
+{
+    if (!_window) {
+        _window = [[FBTweakShakeWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    }
+    return _window;
 }
 
 @end

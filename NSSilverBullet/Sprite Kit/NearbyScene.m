@@ -10,6 +10,7 @@
 #import "SpriteHead.h"
 #import "UIImage+RoundedImage.h"
 #import <UIColor+Colours.h>
+#import <FBTweakInline.h>
 
 @implementation NearbyScene
 {
@@ -50,7 +51,8 @@
     [headSet addChild:name];
     
     // Create Bokeh
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"Pulse" ofType:@"sks"];
+    NSString *spriteName = FBTweakValue(@"Old UI", @"\"Boeka\"", @"Effect", @"Pulse");
+    NSString *path = [[NSBundle mainBundle] pathForResource:spriteName ofType:@"sks"];
     SKEmitterNode *bokeh = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
     bokeh.particlePosition = CGPointMake(0, 0);
     bokeh.particleLifetime = 3;

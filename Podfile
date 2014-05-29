@@ -8,6 +8,8 @@ pod 'Colours', '~> 3.1'
 pod 'RZSquaresLoading'
 pod 'MMDrawerController', '~> 0.5'
 
+pod 'Tweaks', '~> 1.1'
+
 end
 
 target "NSSilverBulletTests" do
